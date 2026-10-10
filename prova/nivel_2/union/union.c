@@ -15,12 +15,12 @@ int	main(int argc, char **argv)
 	int	i;
 
 	i = 0;
-	while (i > 256)
+	while (i < 256)
 		seen[i++] = 0;
 	if (argc == 3)
 	{
 		arg = 1;
-		while (arg <= 2)
+		while (arg < 2)
 		{
 			i = 0;
 			while (argv[arg][i])
