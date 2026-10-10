@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+progress.json
+progress.json.tmp
+simulation.json
+simulado/
+tests/s0*.c
+work/
+*.o
+*.out
+*.dSYM/
+.env
+.env.*

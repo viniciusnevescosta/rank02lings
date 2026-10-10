@@ -1,0 +1,26 @@
+name: Check runner and exercises
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  checks:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      CC: clang
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+      - name: Check runner behavior
+        run: python3 -m unittest discover -s qa -v
+      - name: Check initial exercise failures
+        run: python3 qa/check_exercises.py

@@ -1,0 +1,146 @@
+[
+  {
+    "id": "c01_contar",
+    "level": 1,
+    "path": "conceitos/c01_contar",
+    "kind": "function"
+  },
+  {
+    "id": "c02_copiar",
+    "level": 1,
+    "path": "conceitos/c02_copiar",
+    "kind": "function"
+  },
+  {
+    "id": "c03_trocar",
+    "level": 1,
+    "path": "conceitos/c03_trocar",
+    "kind": "function"
+  },
+  {
+    "id": "c04_espaco",
+    "level": 1,
+    "path": "conceitos/c04_espaco",
+    "kind": "function"
+  },
+  {
+    "id": "c05_minuscula",
+    "level": 1,
+    "path": "conceitos/c05_minuscula",
+    "kind": "function"
+  },
+  {
+    "id": "c06_inicio",
+    "level": 1,
+    "path": "conceitos/c06_inicio",
+    "kind": "function"
+  },
+  {
+    "id": "c07_digito",
+    "level": 2,
+    "path": "conceitos/c07_digito",
+    "kind": "function"
+  },
+  {
+    "id": "c08_acumular",
+    "level": 2,
+    "path": "conceitos/c08_acumular",
+    "kind": "function"
+  },
+  {
+    "id": "c09_buscar",
+    "level": 2,
+    "path": "conceitos/c09_buscar",
+    "kind": "function"
+  },
+  {
+    "id": "c10_inverter",
+    "level": 2,
+    "path": "conceitos/c10_inverter",
+    "kind": "function"
+  },
+  {
+    "id": "c11_bit",
+    "level": 2,
+    "path": "conceitos/c11_bit",
+    "kind": "function"
+  },
+  {
+    "id": "c12_duplicar",
+    "level": 2,
+    "path": "conceitos/c12_duplicar",
+    "kind": "function"
+  },
+  {
+    "id": "c13_tamanho_intervalo",
+    "level": 3,
+    "path": "conceitos/c13_tamanho_intervalo",
+    "kind": "function"
+  },
+  {
+    "id": "c14_passo",
+    "level": 3,
+    "path": "conceitos/c14_passo",
+    "kind": "function"
+  },
+  {
+    "id": "c15_intervalo",
+    "level": 3,
+    "path": "conceitos/c15_intervalo",
+    "kind": "function"
+  },
+  {
+    "id": "c16_valor_base",
+    "level": 3,
+    "path": "conceitos/c16_valor_base",
+    "kind": "function"
+  },
+  {
+    "id": "c17_mdc",
+    "level": 3,
+    "path": "conceitos/c17_mdc",
+    "kind": "function"
+  },
+  {
+    "id": "c18_palavras",
+    "level": 3,
+    "path": "conceitos/c18_palavras",
+    "kind": "function"
+  },
+  {
+    "id": "c19_digitos",
+    "level": 4,
+    "path": "conceitos/c19_digitos",
+    "kind": "function"
+  },
+  {
+    "id": "c20_terminar_vetor",
+    "level": 4,
+    "path": "conceitos/c20_terminar_vetor",
+    "kind": "function"
+  },
+  {
+    "id": "c21_ordenar_par",
+    "level": 4,
+    "path": "conceitos/c21_ordenar_par",
+    "kind": "function"
+  },
+  {
+    "id": "c22_dentro",
+    "level": 4,
+    "path": "conceitos/c22_dentro",
+    "kind": "function"
+  },
+  {
+    "id": "c23_visitar",
+    "level": 4,
+    "path": "conceitos/c23_visitar",
+    "kind": "function"
+  },
+  {
+    "id": "c24_soma_recursiva",
+    "level": 4,
+    "path": "conceitos/c24_soma_recursiva",
+    "kind": "function"
+  }
+]
