@@ -2,24 +2,18 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-#define CHECK(x)                                                               \
-	do                                                                         \
-	{                                                                          \
-		if (!(x))                                                              \
-		{                                                                      \
-			fprintf(stderr, "Failure on line %d: %s\n", __LINE__, #x);         \
-			return 1;                                                          \
-		}                                                                      \
-	} while (0)
+#include "checks.h"
 #include "STUDENT_SOURCE"
 
 int main(void)
 {
 	char d[8] = {0};
 
+	CASE("copy(d, \"abc\")");
 	copy(d, "abc");
-	CHECK(!strcmp(d, "abc"));
+	CHECK_STRING(d, "abc");
+	CASE("copy(d, \"\")");
 	copy(d, "");
-	CHECK(d[0] == 0);
+	CHECK_INT(d[0], 0);
 	return (0);
 }

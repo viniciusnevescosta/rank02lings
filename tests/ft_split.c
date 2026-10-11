@@ -2,15 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-#define CHECK(x)                                                               \
-	do                                                                         \
-	{                                                                          \
-		if (!(x))                                                              \
-		{                                                                      \
-			fprintf(stderr, "Failure: line %d: %s\n", __LINE__, #x);           \
-			return 1;                                                          \
-		}                                                                      \
-	} while (0)
+#include "checks.h"
 #include "STUDENT_SOURCE"
 
 int main(void)
@@ -23,17 +15,18 @@ int main(void)
 						   {"a", "b", NULL}};
 	for (int k = 0; k < 5; k++)
 	{
+		CASE("char **p = ft_split(inputs[k])");
 		char **p = ft_split(inputs[k]);
-		CHECK(p != NULL);
+		CHECK_NOT_NULL(p);
 		int j = 0;
 		while (expected[k][j])
 		{
 			CHECK(p[j] != NULL);
-			CHECK(!strcmp(p[j], expected[k][j]));
+			CHECK_STRING(p[j], expected[k][j]);
 			free(p[j]);
 			j++;
 		}
-		CHECK(p[j] == NULL);
+		CHECK_POINTER(p[j], NULL);
 		free(p);
 	}
 	return 0;

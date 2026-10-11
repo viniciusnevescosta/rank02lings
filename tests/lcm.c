@@ -2,15 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-#define CHECK(x)                                                               \
-	do                                                                         \
-	{                                                                          \
-		if (!(x))                                                              \
-		{                                                                      \
-			fprintf(stderr, "Failure: line %d: %s\n", __LINE__, #x);           \
-			return 1;                                                          \
-		}                                                                      \
-	} while (0)
+#include "checks.h"
 #include "STUDENT_SOURCE"
 
 int main(void)
@@ -25,7 +17,7 @@ int main(void)
 				while (r % a || r % b)
 					r++;
 			}
-			CHECK(lcm(a, b) == r);
+			CHECK_INT(lcm(a, b), r);
 		}
 	return (0);
 }

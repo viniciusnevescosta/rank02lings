@@ -2,22 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-#define CHECK(x)                                                               \
-	do                                                                         \
-	{                                                                          \
-		if (!(x))                                                              \
-		{                                                                      \
-			fprintf(stderr, "Failure on line %d: %s\n", __LINE__, #x);         \
-			return 1;                                                          \
-		}                                                                      \
-	} while (0)
+#include "checks.h"
 #include "STUDENT_SOURCE"
 
 int main(void)
 {
-	CHECK(is_space(' '));
-	CHECK(is_space('\t'));
-	CHECK(!is_space('a'));
-	CHECK(!is_space('\n'));
+	CHECK_BOOL(is_space(' '), 1);
+	CHECK_BOOL(is_space('\t'), 1);
+	CHECK_BOOL(is_space('a'), 0);
+	CHECK_BOOL(is_space('\n'), 0);
 	return (0);
 }

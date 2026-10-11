@@ -2,15 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-#define CHECK(x)                                                               \
-	do                                                                         \
-	{                                                                          \
-		if (!(x))                                                              \
-		{                                                                      \
-			fprintf(stderr, "Failure: line %d: %s\n", __LINE__, #x);           \
-			return 1;                                                          \
-		}                                                                      \
-	} while (0)
+#include "checks.h"
 #include "STUDENT_SOURCE"
 
 static void inc(void *p)
@@ -25,9 +17,12 @@ int main(void)
 	a.data = &x;
 	b.data = &y;
 	a.next = &b;
+	CASE("ft_list_foreach(NULL, inc)");
 	ft_list_foreach(NULL, inc);
+	CASE("ft_list_foreach(&a, inc)");
 	ft_list_foreach(&a, inc);
-	CHECK(x == 2 && y == 3);
-	CHECK(a.next == &b);
+	CHECK_INT(x, 2);
+	CHECK_INT(y, 3);
+	CHECK_POINTER(a.next, &b);
 	return 0;
 }

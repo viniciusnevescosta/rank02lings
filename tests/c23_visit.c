@@ -2,15 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-#define CHECK(x)                                                               \
-	do                                                                         \
-	{                                                                          \
-		if (!(x))                                                              \
-		{                                                                      \
-			fprintf(stderr, "Failure on line %d: %s\n", __LINE__, #x);         \
-			return 1;                                                          \
-		}                                                                      \
-	} while (0)
+#include "checks.h"
 #include "STUDENT_SOURCE"
 
 static void inc_int(int *p)
@@ -21,7 +13,9 @@ static void inc_int(int *p)
 int main(void)
 {
 	int a[] = {1, 2, 3};
+	CASE("visit(a, 3, inc_int)");
 	visit(a, 3, inc_int);
-	CHECK(a[0] == 2 && a[2] == 4);
+	CHECK_INT(a[0], 2);
+	CHECK_INT(a[2], 4);
 	return 0;
 }

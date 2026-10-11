@@ -23,6 +23,8 @@ Keep C sources readable: use indentation, separate statements, and put braces on
 
 Concept exercises are registered in `concepts.json`; practice problems use `manifest.json`. Each function has a harness in `tests/ID.c`. Program inputs and expectations live in `tests/programs.py`. Derive expected results from the contract and include edge cases that distinguish correct from incorrect implementations.
 
+Function harnesses include `tests/checks.h`. Use `CHECK_INT`, `CHECK_BOOL`, `CHECK_STRING`, or `CHECK_POINTER` to report actual and expected values from C. Use `CHECK_NOT_NULL` before dereferencing allocated data and `CASE` to label a call whose result is checked later. The helpers evaluate each argument once and report through stderr, leaving stdout available for exercise output. Keep native compiler/sanitizer locations and C assertion locations distinct.
+
 Only contribute content you can license. Prefer original subjects and preserve attribution when adapting existing material. See PROVENANCE.md for the origin of the current bank.
 
 ## Study solutions

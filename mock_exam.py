@@ -15,11 +15,11 @@ TASKS = [
          'functions: none. '
      ),
      r"""
-    CHECK(first_word_length("") == 0);
-    CHECK(first_word_length(" \t ") == 0);
-    CHECK(first_word_length(" \t abc de") == 3);
-    CHECK(first_word_length("hello") == 5);
-    CHECK(first_word_length("a\tb") == 1);
+    CHECK_INT(first_word_length(""), 0);
+    CHECK_INT(first_word_length(" \t "), 0);
+    CHECK_INT(first_word_length(" \t abc de"), 3);
+    CHECK_INT(first_word_length("hello"), 5);
+    CHECK_INT(first_word_length("a\tb"), 1);
 """),
     ('s02_swap_adjacent_bits', 2, 'unsigned char\tswap_adjacent_bits(unsigned char n)',
      (
@@ -37,7 +37,7 @@ TASKS = [
             r += ((n >> i) & 1) << (i + 1);
             r += ((n >> (i + 1)) & 1) << i;
         }
-        CHECK(swap_adjacent_bits(n) == r);
+        CHECK_INT(swap_adjacent_bits(n), r);
     }
 """),
     ('s03_even_range', 3, 'int\t*even_range(int start, int end, int *count)',
@@ -66,19 +66,19 @@ TASKS = [
                     break;
                 v += a <= b ? 1 : -1;
             }
-            CHECK(count == k);
+            CHECK_INT(count, k);
             if (!k)
             {
-                CHECK(p == NULL);
+                CHECK_POINTER(p, NULL);
                 continue;
             }
-            CHECK(p);
+            CHECK_NOT_NULL(p);
             v = a;
             int j = 0;
             while (1)
             {
                 if (v % 2 == 0)
-                    CHECK(p[j++] == v);
+                    CHECK_INT(p[j++], v);
                 if (v == b)
                     break;
                 v += a <= b ? 1 : -1;
@@ -97,29 +97,29 @@ TASKS = [
          'functions: free. '
      ),
      r"""
-    CHECK(compact_list(NULL) == NULL);
+    CHECK_POINTER(compact_list(NULL), NULL);
     int vals[] = {1, 1, 2, 1, 1, 3, 3}, expected[] = {1, 2, 1, 3};
     t_list *head = NULL;
     for (int i = 6; i >= 0; i--)
     {
         t_list *p = malloc(sizeof(*p));
-        CHECK(p);
+        CHECK_NOT_NULL(p);
         p->data = vals[i];
         p->next = head;
         head = p;
     }
     t_list *original = head;
     head = compact_list(head);
-    CHECK(head == original);
+    CHECK_POINTER(head, original);
     for (int i = 0; i < 4; i++)
     {
-        CHECK(head);
-        CHECK(head->data == expected[i]);
+        CHECK_NOT_NULL(head);
+        CHECK_INT(head->data, expected[i]);
         t_list *next = head->next;
         free(head);
         head = next;
     }
-    CHECK(head == NULL);
+    CHECK_POINTER(head, NULL);
 """),
 ]
 
@@ -146,15 +146,7 @@ def main():
         (folder / "SUBJECT.md").write_text(f"# Level {level}\n\n{subject}\n")
         harness = r"""#include <stdio.h>
 #include <stdlib.h>
-#define CHECK(x)                                                               \
-	do                                                                         \
-	{                                                                          \
-		if (!(x))                                                              \
-		{                                                                      \
-			fprintf(stderr, "Failure: %s\n", #x);                              \
-			return 1;                                                          \
-		}                                                                      \
-	} while (0)
+#include "checks.h"
 #include "STUDENT_SOURCE"
 """ + "\nint\tmain(void)\n{\n" + test.strip("\n").replace("    ", "\t") + "\n\treturn (0);\n}\n"
         (R / "tests" / (identifier + ".c")).write_text(harness)

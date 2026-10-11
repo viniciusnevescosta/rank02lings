@@ -2,15 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-#define CHECK(x)                                                               \
-	do                                                                         \
-	{                                                                          \
-		if (!(x))                                                              \
-		{                                                                      \
-			fprintf(stderr, "Failure on line %d: %s\n", __LINE__, #x);         \
-			return 1;                                                          \
-		}                                                                      \
-	} while (0)
+#include "checks.h"
 #include "STUDENT_SOURCE"
 
 int main(void)
@@ -20,7 +12,9 @@ int main(void)
 
 	a = 3;
 	b = 9;
+	CASE("swap(&a, &b)");
 	swap(&a, &b);
-	CHECK(a == 9 && b == 3);
+	CHECK_INT(a, 9);
+	CHECK_INT(b, 3);
 	return (0);
 }

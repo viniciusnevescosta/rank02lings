@@ -2,23 +2,17 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-#define CHECK(x)                                                               \
-	do                                                                         \
-	{                                                                          \
-		if (!(x))                                                              \
-		{                                                                      \
-			fprintf(stderr, "Failure on line %d: %s\n", __LINE__, #x);         \
-			return 1;                                                          \
-		}                                                                      \
-	} while (0)
+#include "checks.h"
 #include "STUDENT_SOURCE"
 
 int main(void)
 {
 	char a[] = "abc", b[] = "";
+	CASE("reverse(a)");
 	reverse(a);
-	CHECK(!strcmp(a, "cba"));
+	CHECK_STRING(a, "cba");
+	CASE("reverse(b)");
 	reverse(b);
-	CHECK(!strcmp(b, ""));
+	CHECK_STRING(b, "");
 	return 0;
 }
