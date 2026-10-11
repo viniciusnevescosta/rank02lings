@@ -18,8 +18,6 @@
  * GOAL: Make digit return 0 through 9 for decimal digit characters, and -1
  * for any other character. Examples: '6' -> 6; 'x' -> -1.
  */
-#include <stdlib.h>
-#include <string.h>
 
 int	digit(char c)
 {

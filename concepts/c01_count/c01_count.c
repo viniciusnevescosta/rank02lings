@@ -19,8 +19,6 @@
  * Examples: "hi" -> 2; "" -> 0. Keep the existing function signature; the
  * tester supplies main().
  */
-#include <stdlib.h>
-#include <string.h>
 
 int	count(char *s)
 {

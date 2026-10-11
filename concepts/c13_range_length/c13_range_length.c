@@ -19,12 +19,8 @@
  * interval between a and b, regardless of direction. Examples: (3, 6) -> 4;
  * (6, 3) -> 4; (5, 5) -> 1.
  */
-#include <stdlib.h>
-#include <string.h>
 
 int	range_length(int a, int b)
 {
-	(void)a;
-	(void)b;
 	return (a - b);
 }

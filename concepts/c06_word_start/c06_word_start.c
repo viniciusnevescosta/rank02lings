@@ -20,8 +20,6 @@
  * GOAL: Make word_start return the index after all leading spaces and tabs.
  * Examples: "  hi" -> 2; "hi" -> 0; "  " -> 2; "" -> 0.
  */
-#include <stdlib.h>
-#include <string.h>
 
 int	word_start(char *s)
 {

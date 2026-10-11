@@ -70,7 +70,5 @@ char	*ft_itoa(int nbr)
 		result[--len] = nbr % 10 + '0';
 		nbr /= 10;
 	}
-	if (nbr > 0)
-		result[0] = nbr % 10 + '0';
 	return (result);
 }

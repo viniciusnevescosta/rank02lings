@@ -20,8 +20,6 @@
  * its sign. Examples: 0 -> 1; -507 -> 3. The full int range, including
  * INT_MIN, must work.
  */
-#include <stdlib.h>
-#include <string.h>
 
 int	digit_count(int n)
 {

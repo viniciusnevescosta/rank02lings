@@ -20,13 +20,9 @@
  * It must also handle equal values and an already ordered pair without
  * reversing them.
  */
-#include <stdlib.h>
-#include <string.h>
 
 void	sort_pair(int *a, int *b)
 {
-	(void)a;
-	(void)b;
 	(void)a;
 	(void)b;
 }

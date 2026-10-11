@@ -1,5 +1,3 @@
-/* #include <stdio.h> */
-
 /*
  * swap_bits: A byte has two four-bit halves
  *

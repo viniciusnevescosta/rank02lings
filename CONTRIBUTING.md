@@ -19,6 +19,8 @@ The second command checks that the tester rejects all 80 initial exercises. `pyt
 
 Keep C sources readable: use indentation, separate statements, and put braces on their own lines. Preserve teaching comments and omit decorative file banners. Record inherited author attribution in PROVENANCE.md.
 
+Keep starter scaffolding minimal. Use `(void)param;` at most once per unused parameter, and omit it when the body already uses that parameter. Include headers needed by the exercise or its lesson; remove obsolete debugging comments and unrelated dead code. Preserve the intentional defects learners are meant to fix.
+
 Write each learning comment as a focused lesson: explain the concept needed by that exercise, show a small example or trace, and place its GOAL last. Avoid repeated generic advice and complete solutions. Keep examples consistent with the subject, including delimiter rules, ownership, return values, and allowed functions.
 
 ## Adding content

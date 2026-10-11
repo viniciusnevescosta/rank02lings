@@ -19,12 +19,9 @@
  * using the remainder-based process. Examples: (20, 12) -> 4; (0, 7) -> 7;
  * (0, 0) -> 0.
  */
-#include <stdlib.h>
-#include <string.h>
 
 unsigned int	gcd(unsigned int a, unsigned int b)
 {
-	(void)a;
 	(void)b;
 	return (a);
 }

@@ -19,8 +19,6 @@
  * GOAL: Make word_count count runs of characters separated by spaces or
  * tabs. Examples: " a  b " -> 2; "hi!" -> 1; " \t " -> 0; "" -> 0.
  */
-#include <stdlib.h>
-#include <string.h>
 
 int	word_count(char *s)
 {

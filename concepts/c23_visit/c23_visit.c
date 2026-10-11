@@ -20,14 +20,9 @@
  * element's address. The callback decides the change; visit must not
  * hardcode an operation.
  */
-#include <stdlib.h>
-#include <string.h>
 
 void	visit(int *a, int n, void (*f)(int *))
 {
-	(void)a;
-	(void)n;
-	(void)f;
 	(void)a;
 	(void)n;
 	(void)f;

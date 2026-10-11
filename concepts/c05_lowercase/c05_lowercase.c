@@ -18,11 +18,8 @@
  * GOAL: Make lowercase convert an ASCII uppercase letter to lowercase.
  * Examples: D -> d; d -> d; ? -> ?. Return the resulting character.
  */
-#include <stdlib.h>
-#include <string.h>
 
 char	lowercase(char c)
 {
-	(void)c;
 	return (c);
 }

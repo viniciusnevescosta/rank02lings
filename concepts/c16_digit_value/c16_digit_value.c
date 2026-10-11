@@ -18,8 +18,6 @@
  * GOAL: Make digit_value return 0 through 15 for 0-9, a-f, or A-F, and -1
  * otherwise. Examples: 'c' -> 12; 'C' -> 12; 'z' -> -1.
  */
-#include <stdlib.h>
-#include <string.h>
 
 int	digit_value(char c)
 {

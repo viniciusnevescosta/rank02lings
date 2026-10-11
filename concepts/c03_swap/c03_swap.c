@@ -20,13 +20,9 @@
  * the caller must see a = 7 and b = 4. Do not just exchange the local
  * pointer variables.
  */
-#include <stdlib.h>
-#include <string.h>
 
 void	swap(int *a, int *b)
 {
-	(void)a;
-	(void)b;
 	(void)a;
 	(void)b;
 }

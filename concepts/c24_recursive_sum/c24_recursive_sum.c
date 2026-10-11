@@ -19,11 +19,8 @@
  * GOAL: Make recursive_sum return the sum of integers from 1 through n
  * recursively. Examples: 3 -> 6; 1 -> 1; 0 -> 0.
  */
-#include <stdlib.h>
-#include <string.h>
 
 int	recursive_sum(int n)
 {
-	(void)n;
 	return (n);
 }

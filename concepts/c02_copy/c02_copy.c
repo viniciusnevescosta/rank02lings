@@ -22,13 +22,9 @@
  * destination must become an independent copy. Examples: "hi" -> "hi"; "" ->
  * "".
  */
-#include <stdlib.h>
-#include <string.h>
 
 void	copy(char *d, char *s)
 {
-	(void)d;
-	(void)s;
 	(void)d;
 	(void)s;
 }

@@ -18,8 +18,6 @@
  * GOAL: Make bit return exactly 0 or 1 for the bit at pos in n. Examples:
  * (10, 3) -> 1; (10, 2) -> 0; (10, 1) -> 1.
  */
-#include <stdlib.h>
-#include <string.h>
 
 int	bit(unsigned char n, int pos)
 {

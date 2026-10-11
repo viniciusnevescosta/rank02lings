@@ -20,8 +20,6 @@
  * absent. Examples: ("banana", 'a') -> 1; ("banana", 'x') -> -1; ("", 'a')
  * -> -1.
  */
-#include <stdlib.h>
-#include <string.h>
 
 int	find(char *s, char c)
 {

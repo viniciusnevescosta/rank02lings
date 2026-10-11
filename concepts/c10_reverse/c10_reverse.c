@@ -19,11 +19,8 @@
  * while preserving its terminator. Examples: "abcd" -> "dcba"; "a" -> "a";
  * "" -> "".
  */
-#include <stdlib.h>
-#include <string.h>
 
 void	reverse(char *s)
 {
-	(void)s;
 	(void)s;
 }

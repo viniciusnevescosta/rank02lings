@@ -32,6 +32,8 @@ python3 tester.py c01_count --watch
 
 Every concept and practice source includes a lesson about that exercise: an explanation, a small example or trace, and a final **GOAL** describing what you must implement or repair. Examples teach the underlying concept; they do not provide a complete exercise solution. For practice problems, `SUBJECT.md` supplies the full contract and allowed functions.
 
+Incomplete functions may contain `(void)param;` to silence a warning for a parameter they do not use yet. Remove that line when your implementation starts using the parameter.
+
 On macOS, install a missing compiler with `xcode-select --install`. On Ubuntu/Debian, use `sudo apt install python3 build-essential`. Select a compiler with `CC=clang python3 tester.py next`.
 
 ## Commands

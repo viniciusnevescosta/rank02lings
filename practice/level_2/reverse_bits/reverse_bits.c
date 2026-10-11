@@ -1,5 +1,3 @@
-/* #include <stdio.h> */
-
 /*
  * reverse_bits: Bit position reversal changes place value
  *

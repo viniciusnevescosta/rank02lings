@@ -19,12 +19,8 @@
  * nonnegative decimal value. Examples: (24, 6) -> 246; (0, 8) -> 8. d is
  * between 0 and 9.
  */
-#include <stdlib.h>
-#include <string.h>
 
-int	accumulate(int atual, int d)
+int	accumulate(int current, int d)
 {
-	(void)atual;
-	(void)d;
-	return (atual + d);
+	return (current + d);
 }

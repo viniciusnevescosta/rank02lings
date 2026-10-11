@@ -18,8 +18,6 @@
  * dimensions w and h. Reject negative coordinates and indexes equal to or
  * greater than their dimension.
  */
-#include <stdlib.h>
-#include <string.h>
 
 int	in_bounds(int x, int y, int w, int h)
 {

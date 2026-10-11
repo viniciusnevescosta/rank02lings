@@ -20,13 +20,10 @@
  * preceding pointer slots unchanged. Do not alter the characters inside the
  * strings.
  */
-#include <stdlib.h>
-#include <string.h>
+#include <stddef.h>
 
 void	terminate_array(char **p, int n)
 {
-	(void)p;
-	(void)n;
 	(void)p;
 	(void)n;
 }

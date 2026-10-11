@@ -18,8 +18,6 @@
  * GOAL: Make is_space return true for ' ' and '\t', and false for other
  * characters, including '\n'.
  */
-#include <stdlib.h>
-#include <string.h>
 
 int	is_space(char c)
 {

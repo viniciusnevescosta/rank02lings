@@ -17,8 +17,6 @@
  * GOAL: Make step return +1 when a <= b and -1 when a > b. Examples: (1, 4)
  * -> +1; (4, 1) -> -1; (2, 2) -> +1.
  */
-#include <stdlib.h>
-#include <string.h>
 
 int	step(int a, int b)
 {

@@ -21,7 +21,6 @@
  * -> [0]. Return NULL on allocation failure.
  */
 #include <stdlib.h>
-#include <string.h>
 
 int	*range(int a, int b)
 {
