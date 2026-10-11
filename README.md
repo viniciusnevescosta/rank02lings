@@ -35,7 +35,7 @@ On macOS, install a missing compiler with `xcode-select --install`. On Ubuntu/De
 ## Commands
 
 | Command | Purpose |
-|---|---|
+| --- | --- |
 | `python3 tester.py next` | Test the first pending exercise |
 | `python3 tester.py list` | List exercise IDs, paths, and progress |
 | `python3 tester.py status` | Show overall progress |

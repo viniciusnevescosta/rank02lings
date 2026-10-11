@@ -1,23 +1,16 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   alpha_mirror.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/11 19:25:18 by alex              #+#    #+#             */
-/*   Updated: 2024/04/11 19:57:48 by alex             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 /*
-BROKEN EXERCISE: alpha_mirror / level 2
-Describe the state before writing the loop. Use unsigned char for byte comparisons when appropriate. A string copy needs length + 1 bytes. Use unsigned values for masks and shifts. Test empty input and boundaries.
-Describe input, output, state, and the stopping condition from the subject.
-BEFORE CODING: write 3-5 steps in plain language and trace one input by hand.
-There is an intentional defect; the original source may have other issues.
-Explain the cause of a failure instead of patching only the visible example.
-*/
+ * BROKEN EXERCISE: alpha_mirror / level 2
+ * Describe the state before writing the loop. Use unsigned char for byte
+ * comparisons when appropriate. A string copy needs length + 1 bytes. Use
+ * unsigned values for masks and shifts. Test empty input and boundaries.
+ * Describe input, output, state, and the stopping condition from the
+ * subject.
+ * BEFORE CODING: write 3-5 steps in plain language and trace one input by
+ * hand.
+ * There is an intentional defect; the original source may have other issues.
+ * Explain the cause of a failure instead of patching only the visible
+ * example.
+ */
 #include <unistd.h>
 
 void	alpha_mirror(char *str)

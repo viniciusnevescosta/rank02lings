@@ -2,6 +2,24 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-#define CHECK(x) do{if(!(x)){fprintf(stderr,"Failure on line %d: %s\n",__LINE__,#x);return 1;}}while(0)
+#define CHECK(x)                                                               \
+	do                                                                         \
+	{                                                                          \
+		if (!(x))                                                              \
+		{                                                                      \
+			fprintf(stderr, "Failure on line %d: %s\n", __LINE__, #x);         \
+			return 1;                                                          \
+		}                                                                      \
+	} while (0)
 #include "STUDENT_SOURCE"
-int main(void){char *p=duplicate("abc");CHECK(p);CHECK(!strcmp(p,"abc"));free(p);return 0;}
+
+int main(void)
+{
+	char *p;
+
+	p = duplicate("abc");
+	CHECK(p);
+	CHECK(!strcmp(p, "abc"));
+	free(p);
+	return (0);
+}

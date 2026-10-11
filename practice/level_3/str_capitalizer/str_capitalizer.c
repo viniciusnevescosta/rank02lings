@@ -1,11 +1,16 @@
 /*
-BROKEN EXERCISE: str_capitalizer / level 3
-Break the task into parsing, state updates, progress, and output. Ranges include both endpoints. Lists end at NULL. Base conversion accumulates value = value * base + digit.
-Describe input, output, state, and the stopping condition from the subject.
-BEFORE CODING: write 3-5 steps in plain language and trace one input by hand.
-There is an intentional defect; the original source may have other issues.
-Explain the cause of a failure instead of patching only the visible example.
-*/
+ * BROKEN EXERCISE: str_capitalizer / level 3
+ * Break the task into parsing, state updates, progress, and output. Ranges
+ * include both endpoints. Lists end at NULL. Base conversion accumulates
+ * value = value * base + digit.
+ * Describe input, output, state, and the stopping condition from the
+ * subject.
+ * BEFORE CODING: write 3-5 steps in plain language and trace one input by
+ * hand.
+ * There is an intentional defect; the original source may have other issues.
+ * Explain the cause of a failure instead of patching only the visible
+ * example.
+ */
 #include <unistd.h>
 
 static int	is_space(char c)
@@ -15,8 +20,8 @@ static int	is_space(char c)
 
 int	main(int argc, char **argv)
 {
-	int	arg;
-	int	i;
+	int		arg;
+	int		i;
 	char	c;
 
 	arg = 1;
@@ -30,8 +35,7 @@ int	main(int argc, char **argv)
 			c = argv[arg][i];
 			if (c >= 'A' && c <= 'Z')
 				c += 32;
-			if (c >= 'a' && c <= 'z'
-				&& (i == 0 || is_space(argv[arg][i - 1])))
+			if (c >= 'a' && c <= 'z' && (i == 0 || is_space(argv[arg][i - 1])))
 				c -= 32;
 			write(1, &c, 1);
 			i++;

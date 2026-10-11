@@ -1,24 +1,19 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 12:29:20 by alex              #+#    #+#             */
-/*   Updated: 2024/04/26 15:15:54 by alex             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 /*
-BROKEN EXERCISE: ft_itoa / level 4
-Draw the memory layout and identify who owns each allocation. Recursion needs a base case and progress. Preserve next before freeing a node. split needs a \0 per word and NULL at the end of the array. Test zero and INT_MIN in itoa.
-Allow space for the sign. Zero has one digit. Do not negate INT_MIN in int. Every returned string must be allocated.
-BEFORE CODING: write 3-5 steps in plain language and trace one input by hand.
-There is an intentional defect; the original source may have other issues.
-Explain the cause of a failure instead of patching only the visible example.
-*/
+ * BROKEN EXERCISE: ft_itoa / level 4
+ * Draw the memory layout and identify who owns each allocation. Recursion
+ * needs a base case and progress. Preserve next before freeing a node. split
+ * needs a \0 per word and NULL at the end of the array. Test zero and
+ * INT_MIN in itoa.
+ * Allow space for the sign. Zero has one digit. Do not negate INT_MIN in
+ * int. Every returned string must be allocated.
+ * BEFORE CODING: write 3-5 steps in plain language and trace one input by
+ * hand.
+ * There is an intentional defect; the original source may have other issues.
+ * Explain the cause of a failure instead of patching only the visible
+ * example.
+ */
 #include <stdlib.h>
+
 int	len_int(int nbr)
 {
 	int	len;

@@ -17,6 +17,8 @@ python3 qa/check_exercises.py
 
 The second command checks that the tester rejects all 80 initial exercises. `python3 tester.py all` is also expected to fail against the starter sources; that does not mean the runner is broken.
 
+Keep C sources readable: use indentation, separate statements, and put braces on their own lines. Preserve teaching comments and omit decorative file banners. Record inherited author attribution in PROVENANCE.md.
+
 ## Adding content
 
 Concept exercises are registered in `concepts.json`; practice problems use `manifest.json`. Each function has a harness in `tests/ID.c`. Program inputs and expectations live in `tests/programs.py`. Derive expected results from the contract and include edge cases that distinguish correct from incorrect implementations.
