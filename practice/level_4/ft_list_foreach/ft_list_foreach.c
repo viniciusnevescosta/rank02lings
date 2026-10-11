@@ -1,16 +1,23 @@
 /*
- * BROKEN EXERCISE: ft_list_foreach / level 4
- * Draw the memory layout and identify who owns each allocation. Recursion
- * needs a base case and progress. Preserve next before freeing a node. split
- * needs a \0 per word and NULL at the end of the array. Test zero and
- * INT_MIN in itoa.
- * Call f with each node data, then advance to next. An empty list needs no
- * callback.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * ft_list_foreach: The callback consumes payloads rather than nodes
+ *
+ * A list node holds both a link and a payload pointer. The callback's void *
+ * parameter receives the payload, so the callback can choose how to
+ * interpret and modify that data.
+ *
+ * Example:
+ *     node.data = &score;
+ *     Calling a suitable callback on node.data can update score.
+ *     Passing the node address instead would give it the wrong object.
+ *
+ * Traversal still follows node->next, independently of what the callback
+ * does to a payload. A NULL head is an empty list and makes no callback
+ * calls. Preserve the links and head; this function visits existing data,
+ * rather than allocating nodes or selecting a hardcoded arithmetic
+ * operation.
+ *
+ * GOAL: Repair ft_list_foreach to invoke f once on each node's data pointer,
+ * in list order. Handle an empty list and preserve the list structure.
  */
 #include "ft_list.h"
 

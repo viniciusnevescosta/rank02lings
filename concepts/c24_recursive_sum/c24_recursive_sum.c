@@ -1,11 +1,23 @@
 /*
- * c24_recursive_sum
- * GOAL: For n between 0 and 100, stop at n == 0 and reduce n on each call.
- * 1. Describe input, output, and three steps in plain language.
- * 2. Trace a sample input with a state table.
- * 3. Fix the body below while keeping the signature.
- * Edit only this function body; the tester supplies main().
- * The supplied includes are allowed in the concept stage.
+ * c24_recursive_sum: A smaller problem and a base case
+ *
+ * Recursion means that a function calls itself with a smaller problem. Each
+ * call waits for the smaller call's result before completing its own result.
+ * A base case finishes without making another recursive call.
+ *
+ * Trace of the mathematical sum:
+ *     sum(3) = 3 + sum(2)
+ *     sum(2) = 2 + sum(1)
+ *     sum(1) = 1 + sum(0)
+ *     sum(0) = 0
+ * Returning from those calls produces 1, then 3, then 6.
+ *
+ * Two decisions are necessary: what to return at the base case, and how to
+ * reduce the argument toward it. Repeating the same argument creates more
+ * calls without progress. Inputs are between 0 and 100 in this exercise.
+ *
+ * GOAL: Make recursive_sum return the sum of integers from 1 through n
+ * recursively. Examples: 3 -> 6; 1 -> 1; 0 -> 0.
  */
 #include <stdlib.h>
 #include <string.h>

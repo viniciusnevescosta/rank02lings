@@ -1,15 +1,24 @@
 /*
- * BROKEN EXERCISE: union / level 2
- * Describe the state before writing the loop. Use unsigned char for byte
- * comparisons when appropriate. A string copy needs length + 1 bytes. Use
- * unsigned values for masks and shifts. Test empty input and boundaries.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * union: Remembering what has already been emitted
+ *
+ * Membership in either input is not enough to decide whether to print a
+ * character: repeated occurrences must be suppressed while first-occurrence
+ * order is preserved.
+ *
+ * Example:
+ *     First input "caba" produces c, a, b.
+ *     Then input "bad" adds only d, producing "cabd" overall.
+ * Sorting the characters would destroy this encounter order.
+ *
+ * A state table can record which byte values have already been seen, or a
+ * search can inspect earlier occurrences. If using a byte value as an array
+ * index, convert it to unsigned char so it cannot become negative. State
+ * must persist across both strings instead of being reset for the second
+ * one.
+ *
+ * GOAL: Repair union to print each character appearing in either argument
+ * once, in first-encounter order across the two strings, followed by a
+ * newline. Invalid argument counts produce just a newline.
  */
 #include <unistd.h>
 

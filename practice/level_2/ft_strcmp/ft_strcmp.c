@@ -1,15 +1,23 @@
 /*
- * BROKEN EXERCISE: ft_strcmp / level 2
- * Describe the state before writing the loop. Use unsigned char for byte
- * comparisons when appropriate. A string copy needs length + 1 bytes. Use
- * unsigned values for masks and shifts. Test empty input and boundaries.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * ft_strcmp: Lexicographic ordering depends on the first difference
+ *
+ * Lexicographic comparison examines characters from left to right. Equal
+ * prefixes do not decide the result; the first different byte does. A
+ * shorter string also differs at its terminator if the other string
+ * continues.
+ *
+ * Example:
+ *     "car" precedes "cat" because r precedes t.
+ *     "car" precedes "cargo" because '\0' precedes g at index 3.
+ *
+ * The contract uses the sign of the returned int: negative, zero, or
+ * positive. Compare bytes as unsigned char values, because plain char may
+ * represent bytes above 127 as negative values on some systems. Do not keep
+ * comparing after a decisive mismatch or read beyond an ended string.
+ *
+ * GOAL: Repair ft_strcmp to return zero for equal strings and the correct
+ * negative or positive ordering otherwise, following strcmp's unsigned-byte
+ * behavior.
  */
 int	ft_strcmp(char *s1, char *s2)
 {

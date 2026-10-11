@@ -1,17 +1,25 @@
 /*
- * BROKEN EXERCISE: flood_fill / level 4
- * Draw the memory layout and identify who owns each allocation. Recursion
- * needs a base case and progress. Preserve next before freeing a node. split
- * needs a \0 per word and NULL at the end of the array. Test zero and
- * INT_MIN in itoa.
- * Check coordinates before accessing tab[y][x]. Mark before visiting four
- * neighbors. The supplied source also lacks the required public flood_fill
- * function: implement it.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * flood_fill: Connected cells and marking before revisiting
+ *
+ * A matrix is accessed as tab[y][x]: y chooses a row and x chooses a column.
+ * A flood-fill region connects matching characters through horizontal and
+ * vertical neighbors, without diagonal jumps.
+ *
+ * Example starting at the top-left cell:
+ *     Before: 11X     After: FFX
+ *     1XX            FXX
+ * Only the three connected '1' cells change.
+ *
+ * A recursive visit needs reasons to stop: outside the dimensions, a
+ * different character, or an already visited cell. Validate coordinates
+ * before indexing. Recording a visit prevents neighbors from sending
+ * recursion back to the same cell indefinitely. If the starting character is
+ * already F, no visible replacement is needed. Width and height are
+ * exclusive upper boundaries.
+ *
+ * GOAL: Repair flood_fill to repaint the start cell's connected region with
+ * F. Provide the required public flood_fill entry point, which is missing
+ * from the supplied source, and use the types in the header.
  */
 #include "flood_fill.h"
 

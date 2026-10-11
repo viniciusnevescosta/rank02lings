@@ -1,15 +1,24 @@
 /*
- * BROKEN EXERCISE: ft_strspn / level 2
- * Describe the state before writing the loop. Use unsigned char for byte
- * comparisons when appropriate. A string copy needs length + 1 bytes. Use
- * unsigned values for masks and shifts. Test empty input and boundaries.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * ft_strspn: Membership must hold for the whole initial segment
+ *
+ * strspn measures a prefix whose characters all belong to an acceptance set.
+ * It stops at the first source character outside the set, even if accepted
+ * characters appear later.
+ *
+ * Example:
+ *     source "aabxaba", accept "ab" -> prefix "aab", length 3.
+ *     source "aabxaba", accept "" -> length 0.
+ * Repeated source characters still contribute to the length; the set need
+ * not contain duplicates.
+ *
+ * A membership scan must restart for every new source character. The two
+ * strings have different roles: the source supplies ordered text, while
+ * accept supplies possible members. Reaching the end of accept without a
+ * match differs from reaching the end of the source after a valid prefix.
+ *
+ * GOAL: Repair ft_strspn to count the initial consecutive source characters
+ * that appear in accept. Stop at the first nonmember or the source
+ * terminator.
  */
 #include <stddef.h>
 

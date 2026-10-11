@@ -1,14 +1,24 @@
 /*
- * BROKEN EXERCISE: ft_rrange / level 3
- * Break the task into parsing, state updates, progress, and output. Ranges
- * include both endpoints. Lists end at NULL. Base conversion accumulates
- * value = value * base + digit.
- * Start from end and move toward start. Equal endpoints produce one element.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * ft_rrange: The output starts at the second endpoint
+ *
+ * Two endpoint names do not force the output to begin with the first
+ * argument. This contract requests traversal from end toward start, which is
+ * the reverse of ft_range's requested order.
+ *
+ * Example:
+ *     start = -2, end = 1 requests [1, 0, -1, -2].
+ *     start = 1, end = -2 requests [-2, -1, 0, 1].
+ * Both have the same inclusive length, but opposite directions.
+ *
+ * Determine length independently from the first value and the direction of
+ * subsequent values. Storage indexes still move forward from zero even when
+ * the stored numbers decrease. Reserve sizeof(int) bytes per value, handle
+ * malloc failure, and remember that equal endpoints still form a one-element
+ * result.
+ *
+ * GOAL: Repair ft_rrange to return an allocated inclusive range beginning at
+ * end and finishing at start. Follow SUBJECT.md for the signature and
+ * allowed functions.
  */
 #include <stdlib.h>
 

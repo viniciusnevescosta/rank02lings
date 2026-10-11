@@ -4,7 +4,7 @@ Turn ideas into C code: fix small broken exercises, get feedback in your termina
 
 [Study plan](STUDY_PLAN.md) · [Reasoning worksheet](WORKSHEET.md)
 
-- **24 concept exercises** with educational comments.
+- **24 concept exercises** with short lessons and worked examples.
 - **56 practice problems**, grouped into four levels, with intentional defects.
 - **A local tester** that checks compilation, output, timeouts, and memory errors.
 - **Four original challenges** to implement from scratch after completing the track.
@@ -29,6 +29,8 @@ python3 tester.py c01_count --watch
 ```
 
 **Initial failure is expected.** The exercises start broken. After each success, the tester saves progress and automatically runs the next pending exercise, stopping at the first failure. With `--watch`, it waits for edits to that exercise and continues when it passes. Concept exercises come before the exam practice bank. Documentation, source comments, and tester messages are in English.
+
+Every concept and practice source includes a lesson about that exercise: an explanation, a small example or trace, and a final **GOAL** describing what you must implement or repair. Examples teach the underlying concept; they do not provide a complete exercise solution. For practice problems, `SUBJECT.md` supplies the full contract and allowed functions.
 
 On macOS, install a missing compiler with `xcode-select --install`. On Ubuntu/Debian, use `sudo apt install python3 build-essential`. Select a compiler with `CC=clang python3 tester.py next`.
 

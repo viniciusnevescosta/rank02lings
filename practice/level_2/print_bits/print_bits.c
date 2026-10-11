@@ -1,15 +1,23 @@
 /*
- * BROKEN EXERCISE: print_bits / level 2
- * Describe the state before writing the loop. Use unsigned char for byte
- * comparisons when appropriate. A string copy needs length + 1 bytes. Use
- * unsigned values for masks and shifts. Test empty input and boundaries.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * print_bits: A binary representation still consists of text bytes
+ *
+ * The bits of a byte and the characters used to display those bits are
+ * different representations. A selected bit has numeric value 0 or 1; output
+ * requires ASCII '0' or '1'.
+ *
+ * Example:
+ *     Numeric 5 has byte representation 00000101.
+ *     Its display has eight characters, including five leading zeros.
+ *     Writing the raw byte 5 would not print that display.
+ *
+ * Printing order is from the most significant position to the least
+ * significant position. A mask can select one position without changing the
+ * byte. Every position needs an output character even when its bit is zero.
+ * The result here has no trailing newline.
+ *
+ * GOAL: Repair print_bits to write exactly eight binary digits for the
+ * unsigned byte, from bit 7 to bit 0, without a newline. Only write is
+ * allowed.
  */
 #include <unistd.h>
 

@@ -1,15 +1,26 @@
 /*
- * BROKEN EXERCISE: tab_mult / level 3
- * Break the task into parsing, state updates, progress, and output. Ranges
- * include both endpoints. Lists end at NULL. Base conversion accumulates
- * value = value * base + digit.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * tab_mult: Numeric calculation and a fixed textual layout
+ *
+ * A multiplication table combines an increasing multiplier, a fixed input
+ * number, and the product. Their numeric values must be converted to text;
+ * the spaces and symbols in each line are literal output bytes.
+ *
+ * Example for the number 4:
+ *     1 x 4 = 4
+ *     2 x 4 = 8
+ *     ...
+ *     9 x 4 = 36
+ * The multiplier changes between lines, while the input number stays the
+ * same.
+ *
+ * Read the decimal argument before beginning the table. Keep the repetition
+ * counter independent of any counter used to print a multi-digit integer.
+ * Boundaries matter: the requested table starts at 1 and ends at 9, with a
+ * newline after every line.
+ *
+ * GOAL: Repair tab_mult to print the nine multiplication-table lines for its
+ * positive integer argument using the subject's exact spacing. Follow
+ * SUBJECT.md for missing arguments and allowed functions.
  */
 #include <unistd.h>
 

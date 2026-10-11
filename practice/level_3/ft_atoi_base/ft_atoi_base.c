@@ -1,15 +1,24 @@
 /*
- * BROKEN EXERCISE: ft_atoi_base / level 3
- * Break the task into parsing, state updates, progress, and output. Ranges
- * include both endpoints. Lists end at NULL. Base conversion accumulates
- * value = value * base + digit.
- * Convert characters into digits, then check each against the base. Handle
- * uppercase and lowercase.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * ft_atoi_base: Digit values depend on the numeral base
+ *
+ * A base tells how many digit values are available and what one position to
+ * the left is worth. A valid hexadecimal symbol can still be invalid for a
+ * smaller base.
+ *
+ * Example:
+ *     "23" in base 4 represents 2 * 4 + 3 = 11.
+ *     The symbol '4' is not allowed in base 4.
+ *     'b' and 'B' both represent value 11 in base 16.
+ *
+ * Character-to-value conversion and base validation are separate decisions.
+ * Accumulation uses the requested base, not always ten. This subject
+ * recognizes a minus sign only at the very beginning; do not import
+ * unrelated whitespace/sign rules from standard atoi. Parsing stops when the
+ * next symbol is not a valid digit for the base.
+ *
+ * GOAL: Repair ft_atoi_base to convert the valid initial digit sequence in
+ * the supplied base to an int, handling lowercase/uppercase symbols and the
+ * subject's leading-minus rule. Use no library conversion functions.
  */
 static int	get_value(char c)
 {

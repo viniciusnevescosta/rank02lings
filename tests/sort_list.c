@@ -26,8 +26,9 @@ int main(void)
 	a.next = &b;
 	b.next = &c;
 	c.next = &d;
-	CASE("t_list *p = sort_list(&a, ascending)");
-	t_list *p = sort_list(&a, ascending);
+	CASE("sort_list(&a, ascending)");
+	t_list *head = sort_list(&a, ascending);
+	t_list *p = head;
 	int e[] = {-1, 0, 3, 3};
 	for (int i = 0; i < 4; i++)
 	{
@@ -36,14 +37,13 @@ int main(void)
 		p = p->next;
 	}
 	CHECK_POINTER(p, NULL);
-	CASE("p = sort_list(&a, descending)");
-	p = sort_list(&a, descending);
-	int prev = INT_MAX;
+	CASE("sort_list(head, descending)");
+	p = sort_list(head, descending);
+	int reversed[] = {3, 3, 0, -1};
 	for (int i = 0; i < 4; i++)
 	{
 		CHECK_NOT_NULL(p);
-		CHECK(p->data <= prev);
-		prev = p->data;
+		CHECK_INT(p->data, reversed[i]);
 		p = p->next;
 	}
 	CHECK_POINTER(p, NULL);

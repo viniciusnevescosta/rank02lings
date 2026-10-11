@@ -1,15 +1,23 @@
 /*
- * BROKEN EXERCISE: print_hex / level 3
- * Break the task into parsing, state updates, progress, and output. Ranges
- * include both endpoints. Lists end at NULL. Base conversion accumulates
- * value = value * base + digit.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * print_hex: Base conversion produces digits in reverse order
+ *
+ * Division and remainder separate a number into a quotient and its final
+ * digit in a chosen base. In hexadecimal the digit values 10-15 are written
+ * as a-f.
+ *
+ * Example:
+ *     46 / 16 is 2 and 46 % 16 is 14, the symbol e.
+ *     The full representation is "2e", not "e2".
+ * Repeated remainder extraction discovers the least significant digit first.
+ *
+ * You need a way to display the discovered digits in the opposite order,
+ * such as storing them or delaying output through recursion. Zero requires
+ * one digit '0'; a loop that runs only while the value is nonzero would
+ * print no digits for it. The trailing newline is separate from the numeral.
+ *
+ * GOAL: Repair print_hex to display the nonnegative decimal argument in
+ * lowercase hexadecimal followed by a newline. With an invalid argument
+ * count, print just a newline. Only write is allowed.
  */
 #include <unistd.h>
 

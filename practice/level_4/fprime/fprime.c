@@ -1,16 +1,25 @@
 /*
- * BROKEN EXERCISE: fprime / level 4
- * Draw the memory layout and identify who owns each allocation. Recursion
- * needs a base case and progress. Preserve next before freeing a node. split
- * needs a \0 per word and NULL at the end of the array. Test zero and
- * INT_MIN in itoa.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * fprime: Repeated factors and a shrinking remaining number
+ *
+ * Prime factorization decomposes a positive integer into prime factors whose
+ * product equals the original number. A factor may occur several times;
+ * duplicates are part of the representation.
+ *
+ * Example:
+ *     20 = 2 * 2 * 5, so the output is "2*2*5".
+ *     13 is prime, so its output is "13".
+ * After dividing by a discovered factor, that same factor may still divide
+ * the remaining number.
+ *
+ * Progress occurs through reducing the remaining quantity or advancing the
+ * candidate divisor. Output separators belong between factors, without a
+ * leading or trailing '*'. The value one has the explicit representation "1"
+ * even though it has no prime factors. Add one newline after the full
+ * expression.
+ *
+ * GOAL: Repair fprime to print the positive argument's prime factors in
+ * ascending order, separated by *, then a newline. Preserve repeated factors
+ * and the subject's special case for 1.
  */
 #include <stdlib.h>
 #include <stdio.h>

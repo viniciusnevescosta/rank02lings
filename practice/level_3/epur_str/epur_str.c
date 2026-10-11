@@ -1,15 +1,25 @@
 /*
- * BROKEN EXERCISE: epur_str / level 3
- * Break the task into parsing, state updates, progress, and output. Ranges
- * include both endpoints. Lists end at NULL. Base conversion accumulates
- * value = value * base + digit.
- * Output a separator only between words. Track whether a word has been
- * printed.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * epur_str: Printing separators between words rather than at the ends
+ *
+ * Input spacing and output spacing are different things. Runs of spaces or
+ * tabs delimit words, but the output must contain a separator only between
+ * two actual words.
+ *
+ * Example:
+ *     "  red\t\tblue   " becomes "red blue".
+ *     "   " contains no words and contributes no output space.
+ * Writing a space as soon as an input separator appears can create an
+ * unwanted leading or trailing space.
+ *
+ * A small state value can describe whether a previous word was printed or
+ * whether another separator is pending. Keep whitespace scanning separate
+ * from writing word characters. The output separator is an ordinary space
+ * even when the input used tabs, and the newline comes after the complete
+ * normalized text.
+ *
+ * GOAL: Repair epur_str to print words in order with exactly one space
+ * between them and no leading/trailing separators. Append a newline; no
+ * words or an invalid argument count yield just the newline.
  */
 #include <unistd.h>
 

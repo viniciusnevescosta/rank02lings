@@ -1,11 +1,22 @@
 /*
- * c05_lowercase
- * GOAL: Check the ASCII interval before changing a character value.
- * 1. Describe input, output, and three steps in plain language.
- * 2. Trace a sample input with a state table.
- * 3. Fix the body below while keeping the signature.
- * Edit only this function body; the tester supplies main().
- * The supplied includes are allowed in the concept stage.
+ * c05_lowercase: ASCII ranges and guarded conversion
+ *
+ * In the ASCII character set used by these exercises, letters within each
+ * case have consecutive numeric values. A character variable can therefore
+ * be compared with letter literals and used in arithmetic.
+ *
+ * Example:
+ *     'D' - 'A' gives 3, the zero-based position of D.
+ *     'd' - 'a' also gives 3.
+ * The position within the alphabet is independent of the case.
+ *
+ * Only letters in the uppercase interval need conversion. Changing every
+ * byte by a fixed amount would also change punctuation and digits. Decide
+ * whether a character belongs to the relevant interval before transforming
+ * it, and leave other characters unchanged.
+ *
+ * GOAL: Make lowercase convert an ASCII uppercase letter to lowercase.
+ * Examples: D -> d; d -> d; ? -> ?. Return the resulting character.
  */
 #include <stdlib.h>
 #include <string.h>

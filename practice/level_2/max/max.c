@@ -1,15 +1,22 @@
 /*
- * BROKEN EXERCISE: max / level 2
- * Describe the state before writing the loop. Use unsigned char for byte
- * comparisons when appropriate. A string copy needs length + 1 bytes. Use
- * unsigned values for masks and shifts. Test empty input and boundaries.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * max: A running maximum must start from valid data
+ *
+ * A maximum is the largest value encountered so far. The starting candidate
+ * must be meaningful for the actual input; zero is not necessarily a member
+ * of the array.
+ *
+ * Example:
+ *     For [-9, -4, -7], the maximum is -4.
+ *     An initial candidate of 0 would incorrectly remain larger than all
+ *     items.
+ *
+ * The array's length describes valid indexes 0 through len - 1. Accessing
+ * the first element is valid only when the array is nonempty. This contract
+ * gives the empty case its own result, zero, before any element is read.
+ * Repeated or equal values do not change the meaning of the maximum.
+ *
+ * GOAL: Repair max to return the largest element of tab, or 0 when len is
+ * zero. Handle negative-only arrays and do not access an empty array.
  */
 int	max(int *tab, unsigned int len)
 {

@@ -1,16 +1,22 @@
 /*
- * BROKEN EXERCISE: rotone / level 1
- * C strings end with \0. Start indexes at zero and stay within the string.
- * Separate initialization, loop condition, and progress. Pointers hold
- * addresses; *p accesses the pointed value. write outputs bytes without
- * adding a newline.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * rotone: The boundary case of a one-step rotation
+ *
+ * Most letters have a following letter within their ASCII interval. The
+ * final letter is special because its successor must wrap to the beginning
+ * of that interval, not to the following ASCII punctuation byte.
+ *
+ * Example:
+ *     A short circular sequence a, b, c has c followed by a.
+ *     Ordinary numeric addition would instead leave the sequence.
+ *
+ * Treat uppercase and lowercase as separate circular sequences. A nonletter
+ * should pass through unchanged. When a transformation uses several
+ * conditions, make sure that a byte changed by one branch is not transformed
+ * again by a later independent branch in the same iteration.
+ *
+ * GOAL: Repair rotone to replace each ASCII letter with its next alphabet
+ * letter, wrapping z to a and Z to A. Keep other bytes unchanged and follow
+ * the subject's newline and argument rules.
  */
 #include <unistd.h>
 

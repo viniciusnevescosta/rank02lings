@@ -1,11 +1,23 @@
 /*
- * c01_count
- * GOAL: Do not count the terminator. Track an index and stop at \0.
- * 1. Describe input, output, and three steps in plain language.
- * 2. Trace a sample input with a state table.
- * 3. Fix the body below while keeping the signature.
- * Edit only this function body; the tester supplies main().
- * The supplied includes are allowed in the concept stage.
+ * c01_count: Addresses, characters, and the end of a string
+ *
+ * A char pointer stores an address. The string is the sequence of characters
+ * at that address. Testing a pointer asks whether its address is NULL; it
+ * does not ask whether the current character is the end marker.
+ *
+ * Example:
+ *     char text[] = "hi";
+ *     text[0] is 'h', text[1] is 'i', text[2] is '\0'.
+ *     An index of 1 selects text[1]; the address of text stays the same.
+ *
+ * '\0' is a byte with value zero. It occupies memory but is not part of the
+ * text's length. Even "" has storage for this byte. A loop needs both a
+ * condition that inspects the right information and progress that eventually
+ * changes that condition.
+ *
+ * GOAL: Make count return the number of characters before the first \0.
+ * Examples: "hi" -> 2; "" -> 0. Keep the existing function signature; the
+ * tester supplies main().
  */
 #include <stdlib.h>
 #include <string.h>

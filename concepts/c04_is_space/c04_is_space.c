@@ -1,12 +1,22 @@
 /*
- * c04_is_space
- * GOAL: A separator here is a space or tab only. Combine conditions with
- * logical OR.
- * 1. Describe input, output, and three steps in plain language.
- * 2. Trace a sample input with a state table.
- * 3. Fix the body below while keeping the signature.
- * Edit only this function body; the tester supplies main().
- * The supplied includes are allowed in the concept stage.
+ * c04_is_space: Boolean expressions and the meaning of OR
+ *
+ * A comparison such as c == ' ' produces a truth value. In C, zero is false
+ * and nonzero is true. || means that either condition is enough; && requires
+ * both conditions at once.
+ *
+ * Example:
+ *     int is_vowel = (c == 'a' || c == 'e');
+ * 'a' and 'e' satisfy this example. No single character can be both 'a' and
+ * 'e' at the same time.
+ *
+ * Always use the exercise's definition of a separator. Some C library
+ * functions consider several whitespace characters, but this exercise
+ * recognizes only the space byte and the tab byte. A newline is a different
+ * character.
+ *
+ * GOAL: Make is_space return true for ' ' and '\t', and false for other
+ * characters, including '\n'.
  */
 #include <stdlib.h>
 #include <string.h>

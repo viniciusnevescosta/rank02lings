@@ -1,17 +1,24 @@
 /* #include <stdio.h> */
 
 /*
- * BROKEN EXERCISE: reverse_bits / level 2
- * Describe the state before writing the loop. Use unsigned char for byte
- * comparisons when appropriate. A string copy needs length + 1 bytes. Use
- * unsigned values for masks and shifts. Test empty input and boundaries.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * reverse_bits: Bit position reversal changes place value
+ *
+ * Reversing bits maps each of the eight input positions to the opposite
+ * output position. This is different from reversing decimal digits or
+ * swapping just two groups of bits.
+ *
+ * Example:
+ *     Input 00000110 becomes 01100000.
+ *     The input bits at positions 1 and 2 move to positions 6 and 5.
+ * The returned value is a byte, not a printed string of binary characters.
+ *
+ * An output accumulator represents the bits placed so far and must start
+ * with known contents. A counter controls how many positions have been
+ * processed; zero bits still count as positions. Exactly eight positions
+ * exist regardless of the input's numeric magnitude.
+ *
+ * GOAL: Repair reverse_bits to return the byte obtained by reversing all
+ * eight bits. Examples: 00000001 -> 10000000; 00000000 -> 00000000.
  */
 unsigned char	reverse_bits(unsigned char octet)
 {

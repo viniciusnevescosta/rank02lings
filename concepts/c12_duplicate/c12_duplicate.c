@@ -1,12 +1,25 @@
 /*
- * c12_duplicate
- * GOAL: Allocate length + 1. The caller frees the result. strlen is allowed
- * in this microexercise.
- * 1. Describe input, output, and three steps in plain language.
- * 2. Trace a sample input with a state table.
- * 3. Fix the body below while keeping the signature.
- * Edit only this function body; the tester supplies main().
- * The supplied includes are allowed in the concept stage.
+ * c12_duplicate: Allocated storage and ownership
+ *
+ * Returning a pointer does not extend the lifetime of a local array. Storage
+ * obtained from malloc survives the function call until somebody frees it.
+ * The returned pointer transfers responsibility for that allocation to the
+ * caller.
+ *
+ * Example:
+ *     char *buffer = malloc(4 * sizeof(char));
+ *     if (buffer == NULL) return NULL; // allocation failed
+ *     free(buffer);         // after the caller finishes using it
+ * Do not use the buffer after free. A pointer assignment alone would alias
+ * the original string rather than create new storage.
+ *
+ * The allocation must fit the text and its '\0'. An empty duplicate still
+ * needs one byte. strlen is allowed in this concept exercise to measure the
+ * text length; it does not include the terminator.
+ *
+ * GOAL: Make duplicate return a separately allocated copy of s, including
+ * its terminator. Return NULL if allocation fails. The caller must be able
+ * to free the result.
  */
 #include <stdlib.h>
 #include <string.h>

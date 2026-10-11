@@ -1,16 +1,24 @@
 /*
- * BROKEN EXERCISE: rostring / level 4
- * Draw the memory layout and identify who owns each allocation. Recursion
- * needs a base case and progress. Preserve next before freeing a node. split
- * needs a \0 per word and NULL at the end of the array. Test zero and
- * INT_MIN in itoa.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * rostring: Retaining the first interval while processing later words
+ *
+ * A one-word rotation moves the first word to the end while preserving the
+ * order of every other word. The word's boundaries must remain available
+ * after the traversal moves past it.
+ *
+ * Example:
+ *     "  red   blue\tgreen " becomes "blue green red".
+ *     A single word "red" remains "red".
+ * The output uses one space per word boundary, regardless of input spacing.
+ *
+ * Saving a start index and length can describe the first word without
+ * copying it. Printing separators must depend on whether another output word
+ * exists, so no leading/trailing spaces appear. This program uses the first
+ * user argument when more are supplied; its argument rule differs from
+ * strict single-argument exercises.
+ *
+ * GOAL: Repair rostring to move the first word of the first argument to the
+ * end, separate output words with single spaces, and append a newline. No
+ * argument or no words yields just a newline.
  */
 #include <unistd.h>
 

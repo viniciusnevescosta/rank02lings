@@ -1,16 +1,24 @@
 /*
- * BROKEN EXERCISE: ft_itoa / level 4
- * Draw the memory layout and identify who owns each allocation. Recursion
- * needs a base case and progress. Preserve next before freeing a node. split
- * needs a \0 per word and NULL at the end of the array. Test zero and
- * INT_MIN in itoa.
- * Allow space for the sign. Zero has one digit. Do not negate INT_MIN in
- * int. Every returned string must be allocated.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * ft_itoa: Decimal text needs storage for digits, sign, and terminator
+ *
+ * An integer-to-string conversion creates a character representation, not a
+ * pointer to the integer's binary storage. Decimal remainders give digit
+ * values, which must be converted to character codes.
+ *
+ * Example:
+ *     -308 needs ['-', '3', '0', '8', '\0']: five bytes.
+ *     Zero needs ['0', '\0']: two bytes.
+ * The minus sign and terminator are not included in a digit-only count.
+ *
+ * Remainders reveal digits from right to left, while the returned text reads
+ * left to right. INT_MIN cannot generally be negated in int; consider a
+ * wider intermediate representation or signed-digit handling. The result
+ * must always be an allocation owned by the caller, including for zero and
+ * INT_MIN, rather than a string literal or local array.
+ *
+ * GOAL: Repair ft_itoa to return a malloc-allocated decimal string for every
+ * int, including zero and INT_MIN, with a sign when needed and a terminator.
+ * Return NULL on allocation failure.
  */
 #include <stdlib.h>
 

@@ -1,16 +1,23 @@
 /*
- * BROKEN EXERCISE: first_word / level 1
- * C strings end with \0. Start indexes at zero and stay within the string.
- * Separate initialization, loop condition, and progress. Pointers hold
- * addresses; *p accesses the pointed value. write outputs bytes without
- * adding a newline.
- * Skip spaces and tabs, then stop at a separator or string end. Check argc
- * and output exactly one newline.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * first_word: Program arguments and a word boundary
+ *
+ * main receives argc and argv from the operating system. argv[0] names the
+ * program; argv[1] is the first user argument, which can contain spaces when
+ * quoted in the shell. Validate argc before accessing that argument.
+ *
+ * Example:
+ *     ./first_word "  red blue" has argc == 2.
+ *     The two leading spaces are not part of the first word.
+ *     The first word consists of the three bytes r, e, d.
+ *
+ * A word ends at a space, tab, or the string terminator. Locate its
+ * beginning and end independently from printing it. write(1, &c, 1) writes
+ * one byte and adds no newline automatically. An empty or separator-only
+ * input still needs the program's newline.
+ *
+ * GOAL: Repair first_word to print only the first word and a newline. With
+ * an argument count other than one user argument, print just a newline. See
+ * SUBJECT.md for the contract.
  */
 #include <unistd.h>
 

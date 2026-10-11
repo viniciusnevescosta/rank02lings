@@ -1,16 +1,23 @@
 /*
- * BROKEN EXERCISE: rot_13 / level 1
- * C strings end with \0. Start indexes at zero and stay within the string.
- * Separate initialization, loop condition, and progress. Pointers hold
- * addresses; *p accesses the pointed value. write outputs bytes without
- * adding a newline.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * rot_13: Alphabet offsets and wraparound
+ *
+ * A rotation applies to positions within a 26-letter alphabet. Arithmetic on
+ * an offset can wrap around after the last letter, whereas blindly adding to
+ * the ASCII code can enter punctuation.
+ *
+ * Example:
+ *     In a small cycle with positions 0, 1, 2, 3, advancing 3 by 2
+ *     reaches position 1 after wrapping around: 5 % 4 == 1.
+ * The same idea applies to alphabet positions, using a cycle of length 26.
+ *
+ * Uppercase and lowercase use different starting character codes but the
+ * same offsets. Identify the relevant interval before transforming a byte.
+ * Digits, spaces, and punctuation are not alphabet positions and must keep
+ * their original values.
+ *
+ * GOAL: Repair rot_13 to rotate ASCII letters thirteen positions, preserving
+ * case and other characters. Print the transformed argument and a newline;
+ * otherwise print just a newline.
  */
 #include <unistd.h>
 

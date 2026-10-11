@@ -1,15 +1,24 @@
 /*
- * BROKEN EXERCISE: add_prime_sum / level 3
- * Break the task into parsing, state updates, progress, and output. Ranges
- * include both endpoints. Lists end at NULL. Base conversion accumulates
- * value = value * base + digit.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * add_prime_sum: Separating primality from a running sum
+ *
+ * A prime integer is greater than one and has no divisor other than one and
+ * itself. Testing a candidate and adding successful candidates are separate
+ * responsibilities.
+ *
+ * Example:
+ *     Through 6, the primes are 2, 3, and 5; their sum is 10.
+ *     1 is not prime. 4 and 6 have smaller divisors.
+ * For a positive candidate, a nonzero remainder rules out one proposed
+ * divisor but does not prove that all divisors were ruled out.
+ *
+ * A divisor search needs its own fresh state for every candidate. The outer
+ * scan includes the upper limit, so a prime upper limit contributes to the
+ * sum. Invalid argument counts and nonpositive arguments have a specified
+ * numeric output instead of the usual empty newline.
+ *
+ * GOAL: Repair add_prime_sum to print the sum of primes up to and including
+ * the positive argument, followed by a newline. Print 0 and a newline for
+ * invalid argument counts or nonpositive arguments.
  */
 #include <unistd.h>
 

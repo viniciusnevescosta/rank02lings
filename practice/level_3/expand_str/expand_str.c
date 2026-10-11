@@ -1,14 +1,23 @@
 /*
- * BROKEN EXERCISE: expand_str / level 3
- * Break the task into parsing, state updates, progress, and output. Ranges
- * include both endpoints. Lists end at NULL. Base conversion accumulates
- * value = value * base + digit.
- * Recognize words as in epur_str, but output three spaces between them.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * expand_str: Changing the width of an output separator
+ *
+ * A delimiter tells you where words divide in the input. The output format
+ * chooses how to represent that boundary. Multiple input delimiters still
+ * describe one gap between neighboring words.
+ *
+ * Example:
+ *     "red  blue\tgreen" becomes "red   blue   green".
+ *     There are two word boundaries, each represented by three spaces.
+ * The total number of input spaces is not the number of output gaps.
+ *
+ * Separate three activities: skipping input delimiters, copying one word,
+ * and emitting a formatted gap only when another word follows. The first and
+ * last words have no outside gap. A separator-only string has no words, so
+ * it must not produce a row of spaces.
+ *
+ * GOAL: Repair expand_str to print exactly three spaces between consecutive
+ * words, with no leading/trailing spaces, then a newline. Follow SUBJECT.md
+ * for missing or extra arguments.
  */
 #include <unistd.h>
 

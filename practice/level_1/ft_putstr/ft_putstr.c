@@ -1,16 +1,25 @@
 /*
- * BROKEN EXERCISE: ft_putstr / level 1
- * C strings end with \0. Start indexes at zero and stay within the string.
- * Separate initialization, loop condition, and progress. Pointers hold
- * addresses; *p accesses the pointed value. write outputs bytes without
- * adding a newline.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * ft_putstr: Byte output has no automatic string behavior
+ *
+ * write takes a file descriptor, an address, and a byte count. Descriptor 1
+ * is standard output. It does not inspect '\0' to decide a string's length
+ * and does not add a newline.
+ *
+ * Example:
+ *     char message[] = "cat";
+ *     write(1, &message[1], 1);  // writes only 'a'
+ *     write(1, message, 2);      // writes "ca"
+ * The address selects where reading begins; the count selects how much to
+ * write.
+ *
+ * A C string's terminator identifies where the text ends, but normally
+ * should not be sent as an output byte. The empty string contains no text
+ * bytes. Consider which information your loop inspects and which position
+ * changes after an output operation.
+ *
+ * GOAL: Repair ft_putstr to write every text character of str to stdout,
+ * without the terminator or an added newline. Use only write; the tester
+ * provides main().
  */
 #include <unistd.h>
 

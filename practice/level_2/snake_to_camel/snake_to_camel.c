@@ -1,15 +1,23 @@
 /*
- * BROKEN EXERCISE: snake_to_camel / level 2
- * Describe the state before writing the loop. Use unsigned char for byte
- * comparisons when appropriate. A string copy needs length + 1 bytes. Use
- * unsigned values for masks and shifts. Test empty input and boundaries.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * snake_to_camel: A separator can affect the next character
+ *
+ * In snake_case an underscore separates words. In lowerCamelCase that
+ * boundary is represented by the case of the next letter rather than by an
+ * output separator.
+ *
+ * Example:
+ *     "small_box" becomes "smallBox".
+ *     Two input bytes, '_' and 'b', contribute one output letter B.
+ *
+ * The input and output positions therefore do not always advance together.
+ * If examining the byte after an underscore, ensure that the next byte
+ * exists before reading it. The subject supplies snake_case strings; do not
+ * invent transformations for arbitrary punctuation. Preserve the order of
+ * letters and append the program's newline separately.
+ *
+ * GOAL: Repair snake_to_camel to convert its single snake_case argument to
+ * lowerCamelCase and append a newline. Follow SUBJECT.md for the allowed
+ * functions and argument handling.
  */
 #include <unistd.h>
 

@@ -1,12 +1,23 @@
 /*
- * c08_accumulate
- * GOAL: A new digit shifts the previous decimal places: previous * 10 +
- * digit.
- * 1. Describe input, output, and three steps in plain language.
- * 2. Trace a sample input with a state table.
- * 3. Fix the body below while keeping the signature.
- * Edit only this function body; the tester supplies main().
- * The supplied includes are allowed in the concept stage.
+ * c08_accumulate: Place value when appending a decimal digit
+ *
+ * An integer stores a quantity, not a string of characters. To append a
+ * digit numerically, the existing digits must move one decimal place to the
+ * left before the new units digit is added.
+ *
+ * Example:
+ *     24 tens = 240 units.
+ *     Adding a final digit 6 produces 246, not 30.
+ * Multiplication changes place value; addition alone does not.
+ *
+ * Keep conversion and accumulation separate. Here d is already an integer
+ * digit, such as 6, rather than a character such as '6'. The caller handles
+ * parsing. For these examples the result fits in int, so the focus is on the
+ * decimal update rather than overflow handling.
+ *
+ * GOAL: Make accumulate append the numeric digit d to the current
+ * nonnegative decimal value. Examples: (24, 6) -> 246; (0, 8) -> 8. d is
+ * between 0 and 9.
  */
 #include <stdlib.h>
 #include <string.h>

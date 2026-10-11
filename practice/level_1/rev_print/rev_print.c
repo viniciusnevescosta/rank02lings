@@ -1,16 +1,23 @@
 /*
- * BROKEN EXERCISE: rev_print / level 1
- * C strings end with \0. Start indexes at zero and stay within the string.
- * Separate initialization, loop condition, and progress. Pointers hold
- * addresses; *p accesses the pointed value. write outputs bytes without
- * adding a newline.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * rev_print: A last index differs from a length
+ *
+ * A string of length n has text indexes 0 through n - 1. Position n holds
+ * '\0'. Printing backward must begin at a text character, and must stop
+ * before the index becomes negative.
+ *
+ * Example:
+ *     "desk" has length 4 and last text index 3.
+ *     Reading indexes 3, 2, 1, 0 produces "ksed".
+ *     "" has length zero and no valid text index.
+ *
+ * A signed counter can represent the position before index zero; an unsigned
+ * counter wraps to a very large value instead. Reversal here affects output
+ * order, so changing the original string is unnecessary. The newline is a
+ * separate output byte after the reverse text.
+ *
+ * GOAL: Repair rev_print to display its one string argument in reverse,
+ * followed by a newline. Empty input and an invalid argument count produce
+ * only the newline.
  */
 #include <unistd.h>
 

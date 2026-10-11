@@ -1,16 +1,24 @@
 /*
- * BROKEN EXERCISE: repeat_alpha / level 1
- * C strings end with \0. Start indexes at zero and stay within the string.
- * Separate initialization, loop condition, and progress. Pointers hold
- * addresses; *p accesses the pointed value. write outputs bytes without
- * adding a newline.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * repeat_alpha: Character position and nested repetition
+ *
+ * A letter's position in the alphabet can determine a repetition count. This
+ * count is different from its numeric character code: ASCII 'd' is not the
+ * quantity four.
+ *
+ * Example:
+ *     The zero-based position of D is 'D' - 'A' == 3.
+ *     A one-based repetition count for it is 4.
+ *     A punctuation character such as ! has no alphabet position.
+ *
+ * There are two different kinds of progress: advancing through the input,
+ * and producing several copies of the current character. The repetition
+ * counter belongs to one input character and needs a fresh starting state
+ * for the next. Preserve the original letter's case when writing the
+ * repeated bytes.
+ *
+ * GOAL: Repair repeat_alpha to repeat each letter by its one-based alphabet
+ * position, preserve case, and print other characters once. Append a
+ * newline; invalid argument counts produce just a newline.
  */
 #include <unistd.h>
 

@@ -1,15 +1,24 @@
 /*
- * BROKEN EXERCISE: wdmatch / level 2
- * Describe the state before writing the loop. Use unsigned char for byte
- * comparisons when appropriate. A string copy needs length + 1 bytes. Use
- * unsigned values for masks and shifts. Test empty input and boundaries.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * wdmatch: A subsequence preserves order while allowing gaps
+ *
+ * A subsequence is not necessarily a contiguous substring. Characters may be
+ * separated by unrelated bytes, but each needed character must appear after
+ * the previous matched one.
+ *
+ * Example:
+ *     "ac" can be matched in "a--c".
+ *     "ac" cannot be matched in "ca", although both letters are present.
+ *     "aa" needs two separate occurrences of a.
+ *
+ * Track progress in the requested word independently from progress in the
+ * searched text. Encountering an unrelated character in the searched text
+ * does not immediately fail the whole match. Only reaching the end before
+ * all requested characters were matched proves failure. The output is the
+ * original first string on success.
+ *
+ * GOAL: Repair wdmatch to print its first argument and a newline when it is
+ * a subsequence of the second. Otherwise print just a newline, including for
+ * invalid argument counts.
  */
 #include <unistd.h>
 

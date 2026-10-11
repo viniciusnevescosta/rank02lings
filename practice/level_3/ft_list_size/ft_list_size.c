@@ -1,14 +1,24 @@
 /*
- * BROKEN EXERCISE: ft_list_size / level 3
- * Break the task into parsing, state updates, progress, and output. Ranges
- * include both endpoints. Lists end at NULL. Base conversion accumulates
- * value = value * base + digit.
- * Advance a cursor through next. Count nodes without modifying them.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * ft_list_size: A linked list ends at a pointer, not a length
+ *
+ * An array's next element is found by indexing contiguous storage. A linked
+ * list instead stores the address of its next node inside the current node.
+ * Nodes need not be adjacent in memory.
+ *
+ * Example:
+ *     head -> node A -> node B -> NULL
+ *     There are two nodes, even if their data pointers are NULL.
+ * The next pointer controls traversal; the payload's value does not decide
+ * whether a node exists.
+ *
+ * Reading node->next is valid only after establishing that node itself is
+ * non-NULL. A local traversal pointer can move while the caller's head stays
+ * unchanged. The empty list is represented by a NULL head and needs no
+ * dereference or special dummy node.
+ *
+ * GOAL: Repair ft_list_size to count nodes until the next-pointer chain
+ * ends. Return 0 for a NULL head and preserve the list's nodes, data, and
+ * links.
  */
 #include "ft_list.h"
 

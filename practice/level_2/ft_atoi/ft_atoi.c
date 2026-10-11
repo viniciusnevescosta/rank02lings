@@ -1,15 +1,24 @@
 /*
- * BROKEN EXERCISE: ft_atoi / level 2
- * Describe the state before writing the loop. Use unsigned char for byte
- * comparisons when appropriate. A string copy needs length + 1 bytes. Use
- * unsigned values for masks and shifts. Test empty input and boundaries.
- * Handle whitespace, sign, and digits separately. Stop at the first
- * non-digit. Check intermediate arithmetic for overflow.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * ft_atoi: Parsing has whitespace, sign, and digit phases
+ *
+ * An integer parser first decides where the numeric text begins, then
+ * handles an optional sign, then consumes consecutive decimal digits. A
+ * later unrelated character ends the numeric part; it is not another digit.
+ *
+ * Example:
+ *     "  -28tail" represents -28.
+ *     "--28" has no valid digit sequence after its first sign.
+ *     Reading digits 2 and 8 builds a magnitude of 28, not 10.
+ *
+ * The whitespace accepted by atoi includes more than spaces and tabs. A
+ * digit character must become its numeric value before accumulation. Think
+ * about intermediate representation as well as the final result: forming a
+ * positive magnitude can need more range than a negative int of the same
+ * decimal digits.
+ *
+ * GOAL: Repair ft_atoi to reproduce atoi-style parsing: leading whitespace,
+ * one optional sign, consecutive decimal digits, and stopping at the first
+ * nondigit. See SUBJECT.md; do not call library parsing functions.
  */
 int	ft_atoi(const char *str)
 {

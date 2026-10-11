@@ -1,16 +1,25 @@
 /*
- * BROKEN EXERCISE: ft_split / level 4
- * Draw the memory layout and identify who owns each allocation. Recursion
- * needs a base case and progress. Preserve next before freeing a node. split
- * needs a \0 per word and NULL at the end of the array. Test zero and
- * INT_MIN in itoa.
- * Count words, allocate the array and each word, and finish with NULL.
- * Separate recognition from copying.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * ft_split: Several allocations and two different terminators
+ *
+ * A split result is a pointer array containing pointers to independently
+ * stored words. The pointer array ends with NULL; each word separately ends
+ * with a '\0' byte.
+ *
+ * Example layout for "red  blue":
+ *     result[0] -> ['r', 'e', 'd', '\0']
+ *     result[1] -> ['b', 'l', 'u', 'e', '\0']
+ *     result[2] -> NULL
+ * A gap of several separators must not create extra empty words.
+ *
+ * Count pointer slots separately from bytes within a word. An input with no
+ * words still returns an allocated pointer array containing NULL. The caller
+ * later frees the word allocations and that array. Check each allocation
+ * before writing through it; the word delimiters here include spaces, tabs,
+ * and newlines.
+ *
+ * GOAL: Repair ft_split to return the words as a NULL-terminated allocated
+ * char **, with a terminator in every word and no empty entries from
+ * repeated separators. Follow SUBJECT.md's allowed functions.
  */
 #include <stdlib.h>
 

@@ -1,15 +1,24 @@
 /*
- * BROKEN EXERCISE: ft_strpbrk / level 2
- * Describe the state before writing the loop. Use unsigned char for byte
- * comparisons when appropriate. A string copy needs length + 1 bytes. Use
- * unsigned values for masks and shifts. Test empty input and boundaries.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * ft_strpbrk: Returning a position as a pointer
+ *
+ * A search result can be an address inside the original string rather than
+ * an integer index or a newly allocated copy. Dereferencing that address
+ * reads the matched character; treating it as a string exposes the suffix
+ * starting there.
+ *
+ * Example:
+ *     char text[] = "kite";
+ *     char *position = &text[1];
+ *     position[0] is 'i', and position refers to the suffix "ite".
+ *
+ * The accepted characters form a set. The first source character that
+ * belongs to that set determines the result, regardless of the set's order.
+ * If no character matches, NULL indicates absence. The returned pointer does
+ * not transfer ownership of any new storage.
+ *
+ * GOAL: Repair ft_strpbrk to return a pointer to the first byte of s1 that
+ * appears in s2, or NULL if none does. Return a position in s1, not copied
+ * text.
  */
 char	*ft_strpbrk(const char *s1, const char *s2)
 {

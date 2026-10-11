@@ -1,16 +1,25 @@
 /*
- * BROKEN EXERCISE: ulstr / level 1
- * C strings end with \0. Start indexes at zero and stay within the string.
- * Separate initialization, loop condition, and progress. Pointers hold
- * addresses; *p accesses the pointed value. write outputs bytes without
- * adding a newline.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * ulstr: Mutually exclusive case conversion
+ *
+ * Changing case is a classification followed by a transformation. A
+ * character can start as uppercase, lowercase, or neither. Those
+ * classifications must refer to its original value for the current
+ * iteration.
+ *
+ * Example:
+ *     A -> a, while a -> A.
+ *     A digit 4 remains 4.
+ * If an uppercase letter is lowered and then immediately processed by a
+ * second lowercase test, the two changes can cancel each other.
+ *
+ * ASCII letter ranges let you classify bytes without a library call.
+ * Preserve punctuation and spacing exactly. Each input character should go
+ * through one relevant transformation, and each iteration should advance to
+ * the next character afterward.
+ *
+ * GOAL: Repair ulstr to reverse the case of every ASCII letter, preserving
+ * other characters. Output a newline after the argument; invalid argument
+ * counts produce just a newline.
  */
 #include <unistd.h>
 

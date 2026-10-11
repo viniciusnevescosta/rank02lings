@@ -1,16 +1,24 @@
 /*
- * BROKEN EXERCISE: fizzbuzz / level 1
- * C strings end with \0. Start indexes at zero and stay within the string.
- * Separate initialization, loop condition, and progress. Pointers hold
- * addresses; *p accesses the pointed value. write outputs bytes without
- * adding a newline.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * fizzbuzz: Overlapping conditions and decimal output
+ *
+ * The remainder operator % can test divisibility: 12 % 3 is zero, while 13 %
+ * 3 is one. Some numbers satisfy more than one rule, so the order and
+ * exclusivity of your decisions matter.
+ *
+ * Example:
+ *     6 belongs to the multiples of 3.
+ *     10 belongs to the multiples of 5.
+ *     30 belongs to both groups and needs one combined output line.
+ *
+ * An integer such as 42 is not a printable two-character string. Writing its
+ * memory would output representation bytes. Decimal output instead needs the
+ * characters '4' and '2'. Keep choosing the output separate from advancing
+ * to the next number; every iteration must advance, regardless of which rule
+ * matched.
+ *
+ * GOAL: Repair fizzbuzz to print 1 through 100, one line per number,
+ * replacing multiples of 3, 5, or both with fizz, buzz, or fizzbuzz
+ * respectively. Only write is allowed.
  */
 #include <unistd.h>
 

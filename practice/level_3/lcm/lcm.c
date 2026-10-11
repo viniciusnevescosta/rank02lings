@@ -1,15 +1,23 @@
 /*
- * BROKEN EXERCISE: lcm / level 3
- * Break the task into parsing, state updates, progress, and output. Ranges
- * include both endpoints. Lists end at NULL. Base conversion accumulates
- * value = value * base + digit.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * lcm: A common multiple and the special zero case
+ *
+ * The least common multiple is the smallest positive integer divisible by
+ * both nonzero inputs. It is a multiple, rather than a common divisor.
+ *
+ * Example:
+ *     Multiples of 4: 4, 8, 12, 16, ...
+ *     Multiples of 6: 6, 12, 18, ...
+ *     Their least common multiple is 12; their gcd is 2.
+ *
+ * The subject permits either a multiple search or a gcd-based calculation. A
+ * search must make progress, and the formula needs attention to intermediate
+ * multiplication: a product can overflow before a later division reduces it.
+ * This contract defines lcm with a zero input as zero, so avoid a
+ * remainder/division operation using that input as divisor.
+ *
+ * GOAL: Repair lcm to return the least common multiple of its unsigned
+ * inputs, with 0 when either input is 0. See SUBJECT.md for the two
+ * suggested approaches.
  */
 unsigned int	lcm(unsigned int a, unsigned int b)
 {

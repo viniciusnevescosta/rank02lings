@@ -1,15 +1,24 @@
 /*
- * BROKEN EXERCISE: pgcd / level 3
- * Break the task into parsing, state updates, progress, and output. Ranges
- * include both endpoints. Lists end at NULL. Base conversion accumulates
- * value = value * base + digit.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * pgcd: A decreasing divisor problem after parsing
+ *
+ * The greatest common divisor divides both positive operands and is as large
+ * as possible. Parsing the text arguments supplies the numeric values; the
+ * divisor calculation then works on those integers.
+ *
+ * Example:
+ *     gcd(21, 15) equals gcd(15, 6), then gcd(6, 3), giving 3.
+ * Each remainder reduction preserves common divisors while shrinking the
+ * second value.
+ *
+ * The previous values matter when updating a pair: assigning one too early
+ * can change the remainder calculation. A zero remainder ends the reduction;
+ * a zero divisor must never be used in %. This program prints a decimal
+ * result, unlike the earlier concept function which returned the number to
+ * its caller.
+ *
+ * GOAL: Repair pgcd to parse two strictly positive integer arguments and
+ * print their greatest common divisor with a newline. Invalid argument
+ * counts produce just a newline; follow SUBJECT.md for allowed functions.
  */
 #include <stdio.h>
 #include <stdlib.h>

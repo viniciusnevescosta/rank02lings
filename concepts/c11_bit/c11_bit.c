@@ -1,12 +1,22 @@
 /*
- * c11_bit
- * GOAL: pos is between 0 and 7. Shift the bit to position zero and mask with
- * 1.
- * 1. Describe input, output, and three steps in plain language.
- * 2. Trace a sample input with a state table.
- * 3. Fix the body below while keeping the signature.
- * Edit only this function body; the tester supplies main().
- * The supplied includes are allowed in the concept stage.
+ * c11_bit: Bit positions, shifts, and masks
+ *
+ * A byte has eight binary positions. Position zero is the least significant
+ * bit, worth 1; position seven is worth 128. A right shift moves bits toward
+ * position zero, and & compares positions against a mask.
+ *
+ * Example:
+ *     10 in binary is 00001010.
+ *     Its bits at positions 3 and 1 are set.
+ *     A mask 00000001 keeps only the least significant position.
+ *
+ * A shifted number can still contain several set bits. Testing whether that
+ * whole number is nonzero does not isolate a particular position. A mask
+ * selects the information you need. pos is restricted to 0 through 7, so
+ * there is no need to define out-of-range shifts here.
+ *
+ * GOAL: Make bit return exactly 0 or 1 for the bit at pos in n. Examples:
+ * (10, 3) -> 1; (10, 2) -> 0; (10, 1) -> 1.
  */
 #include <stdlib.h>
 #include <string.h>

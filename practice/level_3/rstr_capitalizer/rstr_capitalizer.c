@@ -1,15 +1,25 @@
 /*
- * BROKEN EXERCISE: rstr_capitalizer / level 3
- * Break the task into parsing, state updates, progress, and output. Ranges
- * include both endpoints. Lists end at NULL. Base conversion accumulates
- * value = value * base + digit.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * rstr_capitalizer: A word end is a boundary, not every letter
+ *
+ * Words in this subject are delimited by spaces or tabs. Punctuation inside
+ * a word remains part of it. Lowercasing text and selecting the character at
+ * a word boundary are separate operations.
+ *
+ * Example:
+ *     "hELLo wORLD" becomes "hellO worlD".
+ *     A one-letter word "a" becomes "A".
+ * The final character can be recognized because the next position is a
+ * separator or '\0'. Check that final character is a letter before
+ * uppercasing it.
+ *
+ * A look-ahead is safe only while the current position is a text byte.
+ * Process every user argument, each with its own newline. Preserve the
+ * spacing already present rather than normalizing it. The no-argument case
+ * still needs one newline.
+ *
+ * GOAL: Repair rstr_capitalizer to lowercase letters and uppercase the final
+ * character of each word when it is a letter. Preserve other bytes and
+ * process all arguments as described in SUBJECT.md.
  */
 #include <unistd.h>
 

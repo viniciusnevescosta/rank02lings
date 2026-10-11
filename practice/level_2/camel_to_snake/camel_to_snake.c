@@ -1,15 +1,24 @@
 /*
- * BROKEN EXERCISE: camel_to_snake / level 2
- * Describe the state before writing the loop. Use unsigned char for byte
- * comparisons when appropriate. A string copy needs length + 1 bytes. Use
- * unsigned values for masks and shifts. Test empty input and boundaries.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * camel_to_snake: One input byte can produce two output bytes
+ *
+ * A naming conversion does not necessarily preserve string length. An
+ * uppercase letter in lowerCamelCase marks the start of another word; its
+ * snake_case representation adds a separator and changes case.
+ *
+ * Example:
+ *     "smallBox" becomes "small_box".
+ *     The input B corresponds to the output pair '_' and 'b'.
+ * The input position still advances by one even when two bytes are emitted.
+ *
+ * If writing directly, output expansion does not require an allocated
+ * buffer. If building a result string instead, reserve enough space for
+ * inserted characters and the terminator. The contract supplies
+ * lowerCamelCase input, so focus on that format rather than inventing rules
+ * for unrelated naming styles.
+ *
+ * GOAL: Repair camel_to_snake to convert the single lowerCamelCase argument
+ * to snake_case and append a newline. Preserve the order of all words and
+ * follow SUBJECT.md for argument handling.
  */
 #include <unistd.h>
 

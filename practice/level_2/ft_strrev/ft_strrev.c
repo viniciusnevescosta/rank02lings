@@ -1,14 +1,24 @@
 /*
- * BROKEN EXERCISE: ft_strrev / level 2
- * Describe the state before writing the loop. Use unsigned char for byte
- * comparisons when appropriate. A string copy needs length + 1 bytes. Use
- * unsigned values for masks and shifts. Test empty input and boundaries.
- * Move two indexes toward each other. An empty string has no last character.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * ft_strrev: An in-place transformation can also return its input
+ *
+ * Reversing in place changes the caller's existing buffer. The return value
+ * is still the original starting address, so a caller can use the
+ * transformed string immediately.
+ *
+ * Example:
+ *     A writable buffer "boat" becomes "taob".
+ *     Its address is unchanged, and '\0' remains at the same index.
+ *     A pointer advanced to the middle is not the required return
+ *     address.
+ *
+ * Text length and last text index differ by one. Pairing opposite positions
+ * needs a saved value for the exchange. An empty string must avoid a read
+ * before its beginning, and a one-character string needs no exchange. Stop
+ * when the two positions meet or cross.
+ *
+ * GOAL: Repair ft_strrev to reverse a writable string in place and return
+ * its original pointer. Handle empty, one-character, even-length, and
+ * odd-length strings.
  */
 char	*ft_strrev(char *str)
 {

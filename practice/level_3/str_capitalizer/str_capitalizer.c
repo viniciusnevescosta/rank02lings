@@ -1,15 +1,24 @@
 /*
- * BROKEN EXERCISE: str_capitalizer / level 3
- * Break the task into parsing, state updates, progress, and output. Ranges
- * include both endpoints. Lists end at NULL. Base conversion accumulates
- * value = value * base + digit.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * str_capitalizer: The first character of a word need not be a letter
+ *
+ * A word begins at the start of a string or just after a space/tab. This
+ * defines a boundary independently of whether the first character is a
+ * letter.
+ *
+ * Example:
+ *     "hELLo wORLD" becomes "Hello World".
+ *     "__HELLO" becomes "__hello", because its word begins with '_'.
+ * A run of letters after punctuation is not automatically a new word under
+ * this contract.
+ *
+ * Normalize letter case while preserving punctuation and original spacing.
+ * For a character at index zero there is no previous character to inspect;
+ * treat the beginning explicitly instead of reading index -1. There can be
+ * several user arguments, and each needs a complete output line.
+ *
+ * GOAL: Repair str_capitalizer to uppercase a word's first character if it
+ * is a letter and lowercase its other letters. Preserve separators and print
+ * one line per argument, or one newline if none are supplied.
  */
 #include <unistd.h>
 

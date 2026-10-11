@@ -1,15 +1,24 @@
 /*
- * BROKEN EXERCISE: paramsum / level 3
- * Break the task into parsing, state updates, progress, and output. Ranges
- * include both endpoints. Lists end at NULL. Base conversion accumulates
- * value = value * base + digit.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * paramsum: argc includes the program name
+ *
+ * The operating system passes an array of argument strings to main. argc
+ * counts the program-name entry as well as user arguments; it does not count
+ * the characters contained in those arguments.
+ *
+ * Example:
+ *     ./paramsum "red blue" green
+ *     argv[0] is the program name; argv[1] is "red blue";
+ *     argv[2] is "green". There are two user arguments.
+ * Quotation groups words into a single argument before the program starts.
+ *
+ * The result is an integer that must be displayed as decimal text. A count
+ * greater than nine needs multiple digit characters, rather than one
+ * character obtained by adding '0'. No user arguments still produce a
+ * visible zero followed by a newline.
+ *
+ * GOAL: Repair paramsum to print the number of user arguments in decimal,
+ * followed by a newline. Do not include argv[0] in that count. Only write is
+ * allowed.
  */
 #include <unistd.h>
 

@@ -1,16 +1,22 @@
 /*
- * BROKEN EXERCISE: search_and_replace / level 1
- * C strings end with \0. Start indexes at zero and stay within the string.
- * Separate initialization, loop condition, and progress. Pointers hold
- * addresses; *p accesses the pointed value. write outputs bytes without
- * adding a newline.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * search_and_replace: Argument strings that represent single characters
+ *
+ * Each argv element is a string even when it represents one character.
+ * Validate that the search and replacement arguments each contain exactly
+ * one text byte before treating them as char values.
+ *
+ * Example:
+ *     "x" has bytes ['x', '\0'] and represents one character.
+ *     "xy" represents two characters; "" represents none.
+ *
+ * For each input byte, decide whether to use its original value or the
+ * replacement. Characters that do not match must still be printed. The
+ * replacement may be identical to the search character; that is a valid
+ * no-change transformation. A missing match also leaves the text unchanged.
+ *
+ * GOAL: Repair search_and_replace to replace every occurrence of the single
+ * search character with the single replacement character. Print a newline,
+ * and print only that newline for invalid arguments.
  */
 #include <unistd.h>
 

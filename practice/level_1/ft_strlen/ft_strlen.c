@@ -1,16 +1,23 @@
 /*
- * BROKEN EXERCISE: ft_strlen / level 1
- * C strings end with \0. Start indexes at zero and stay within the string.
- * Separate initialization, loop condition, and progress. Pointers hold
- * addresses; *p accesses the pointed value. write outputs bytes without
- * adding a newline.
- * Count characters before the terminator. The index is the number of visited
- * characters.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * ft_strlen: Length describes text, not allocated space
+ *
+ * A string can occupy a larger buffer than its visible text. Its length is
+ * determined by the first '\0', not by the size of the containing array or
+ * by sizeof on a pointer.
+ *
+ * Example:
+ *     char label[12] = "dog";
+ *     The array has 12 char slots, but the string length is 3.
+ *     sizeof(label) measures the array; a char * parameter is only a
+ *     pointer.
+ *
+ * Indexes start at zero, so the terminator of "dog" is at index 3. Do not
+ * include that byte in the result. The empty string has a terminator at
+ * index zero and length zero. Each iteration must inspect a character and
+ * make progress to another position.
+ *
+ * GOAL: Repair ft_strlen to return the number of characters before the first
+ * terminator. Examples: "dog" -> 3; "" -> 0. Do not use library functions.
  */
 int	ft_strlen(char *str)
 {

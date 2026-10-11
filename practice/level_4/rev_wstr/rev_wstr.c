@@ -1,16 +1,24 @@
 /*
- * BROKEN EXERCISE: rev_wstr / level 4
- * Draw the memory layout and identify who owns each allocation. Recursion
- * needs a base case and progress. Preserve next before freeing a node. split
- * needs a \0 per word and NULL at the end of the array. Test zero and
- * INT_MIN in itoa.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * rev_wstr: Reverse word order without reversing each word
+ *
+ * A word is an interval of characters. Reversing the order of those
+ * intervals is different from reversing all text bytes, which would also
+ * reverse the letters inside each word.
+ *
+ * Example:
+ *     "red blue green" becomes "green blue red".
+ *     A byte reversal would produce "neerg eulb der", which is
+ *     different.
+ *
+ * Locate a complete word before printing its characters in their normal
+ * forward order. Moving between word boundaries can happen backward, while
+ * printing within a word happens forward. The subject's inputs have no extra
+ * separators and exactly one space between words. Avoid introducing an
+ * outside space at either end of the output.
+ *
+ * GOAL: Repair rev_wstr to print the single argument's words in reverse
+ * order, preserving each word's characters, followed by a newline. Follow
+ * the subject's input-spacing and argument assumptions.
  */
 #include <unistd.h>
 

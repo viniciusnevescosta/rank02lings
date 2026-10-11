@@ -1,15 +1,22 @@
 /*
- * BROKEN EXERCISE: last_word / level 2
- * Describe the state before writing the loop. Use unsigned char for byte
- * comparisons when appropriate. A string copy needs length + 1 bytes. Use
- * unsigned values for masks and shifts. Test empty input and boundaries.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * last_word: Trailing separators do not belong to the last word
+ *
+ * The last word is not necessarily followed immediately by '\0': spaces and
+ * tabs may follow it. Locate the end of the final word before locating its
+ * beginning.
+ *
+ * Example:
+ *     "red blue   " has last word "blue", not an empty word.
+ *     In "   ", skipping separators leaves no word at all.
+ *
+ * Scanning backward from a length requires care because a length is one past
+ * the last text index. A signed position can represent crossing the
+ * beginning; an unsigned one wraps on subtraction. Once a word's boundaries
+ * are known, printing it still uses forward character order.
+ *
+ * GOAL: Repair last_word to print the last word of its single string
+ * argument followed by a newline. For no word or an invalid argument count,
+ * print just the newline.
  */
 #include <unistd.h>
 

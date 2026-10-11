@@ -1,12 +1,22 @@
 /*
- * c07_digit
- * GOAL: The character 7 differs from the integer 7. Subtract the character
- * code of 0.
- * 1. Describe input, output, and three steps in plain language.
- * 2. Trace a sample input with a state table.
- * 3. Fix the body below while keeping the signature.
- * Edit only this function body; the tester supplies main().
- * The supplied includes are allowed in the concept stage.
+ * c07_digit: A digit character is not its numeric value
+ *
+ * The int value 6 and the char literal '6' are different representations. A
+ * text digit is a character code; arithmetic usually needs the quantity
+ * represented by that character.
+ *
+ * Example:
+ *     '6' - '0' gives the integer 6.
+ *     '0' - '0' gives the integer 0.
+ * The subtraction works because ASCII decimal digit codes are consecutive.
+ *
+ * Validate membership in the range '0' through '9' before converting.
+ * Subtracting '0' from an unrelated letter also produces a number, but that
+ * number is not a valid decimal digit. A sentinel value can distinguish an
+ * invalid character from the valid digit zero.
+ *
+ * GOAL: Make digit return 0 through 9 for decimal digit characters, and -1
+ * for any other character. Examples: '6' -> 6; 'x' -> -1.
  */
 #include <stdlib.h>
 #include <string.h>

@@ -1,15 +1,23 @@
 /*
- * BROKEN EXERCISE: do_op / level 2
- * Describe the state before writing the loop. Use unsigned char for byte
- * comparisons when appropriate. A string copy needs length + 1 bytes. Use
- * unsigned values for masks and shifts. Test empty input and boundaries.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * do_op: Text parsing and integer arithmetic are different stages
+ *
+ * Command-line numbers arrive as text. Convert each numeric operand before
+ * computing; a character such as '7' is not the integer seven. The operator
+ * argument selects which arithmetic operation to perform.
+ *
+ * Example:
+ *     Integer -8 / 3 is -2 in C99: division truncates toward zero.
+ *     The remainder satisfies a == (a / b) * b + (a % b).
+ *     Accordingly, -8 % 3 is -2.
+ *
+ * Keep reading operands, selecting an operation, and displaying the result
+ * separate. Signed results may need a leading minus sign. The subject
+ * guarantees valid operand/operator text and an int-sized result; division
+ * and remainder still require a nonzero divisor to be defined in C.
+ *
+ * GOAL: Repair do_op to evaluate the three user arguments as integer
+ * operand, operator, integer operand, and print the result with a newline.
+ * Follow the allowed functions and parameter rules in SUBJECT.md.
  */
 #include <stdio.h>
 #include <stdlib.h>

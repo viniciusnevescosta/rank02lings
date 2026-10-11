@@ -1,15 +1,24 @@
 /*
- * BROKEN EXERCISE: hidenp / level 3
- * Break the task into parsing, state updates, progress, and output. Ranges
- * include both endpoints. Lists end at NULL. Base conversion accumulates
- * value = value * base + digit.
- * Describe input, output, state, and the stopping condition from the
- * subject.
- * BEFORE CODING: write 3-5 steps in plain language and trace one input by
- * hand.
- * There is an intentional defect; the original source may have other issues.
- * Explain the cause of a failure instead of patching only the visible
- * example.
+ * hidenp: Consuming an ordered subsequence
+ *
+ * A hidden string is an ordered subsequence of another string. Gaps are
+ * permitted, but reusing one occurrence or matching characters in a
+ * different order is not permitted.
+ *
+ * Example:
+ *     "dog" is hidden in "d--o--g".
+ *     It is not hidden in "god".
+ *     "dd" needs two occurrences of d in order.
+ *
+ * One position tracks the next required character; another tracks the
+ * current source character. The source position advances even through
+ * unrelated bytes, while the required position changes only when a match is
+ * consumed. An empty required string is already fully matched. Here the
+ * output is a numeric truth indicator rather than the matched text.
+ *
+ * GOAL: Repair hidenp to print 1 and a newline if the first argument is
+ * hidden in the second, otherwise 0 and a newline. An invalid argument count
+ * produces just a newline.
  */
 #include <unistd.h>
 
