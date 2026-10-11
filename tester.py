@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile, corrija e acompanhe exercícios locais de C."""
+"""Compile, fix, and track local C exercises."""
 import argparse
 import hashlib
 import json
@@ -55,17 +55,17 @@ def fingerprint(exercise):
 def compiler_command():
     command = shlex.split(os.environ.get("CC", "cc"))
     if not command:
-        raise ValueError("CC está vazio. Use CC=clang ou CC=gcc.")
+        raise ValueError("CC is empty. Use CC=clang or CC=gcc.")
     version = subprocess.run(command + ["--version"], capture_output=True, timeout=10)
     flags = ["-std=c99", "-Wall", "-Wextra", "-Werror", "-g"]
     if b"clang" in version.stdout.lower():
-        # O enunciado antigo de remove_if exige int (*cmp)().
+        # The original remove_if subject requires int (*cmp)().
         flags.append("-Wno-deprecated-non-prototype")
     return command + flags
 
 
 def run(exercise, base=None, sanitize=True):
-    """Retorne (aprovado, diagnóstico), sem alterar o progresso."""
+    """Return (passed, diagnostic) without modifying progress."""
     name = exercise["id"]
     folder = (base / ("Level_" + str(exercise["level"])) / name
               if base else ROOT / exercise["path"])
@@ -89,9 +89,9 @@ def run(exercise, base=None, sanitize=True):
                 command + [str(p) for p in inputs] + ["-o", str(executable)],
                 capture_output=True, timeout=20)
         except (OSError, ValueError, subprocess.TimeoutExpired) as error:
-            return False, f"FERRAMENTAS/ARQUIVOS: {error}"
+            return False, f"TOOLS/FILES: {error}"
         if compiled.returncode:
-            return False, "COMPILAÇÃO\n" + compiled.stderr.decode(errors="replace")
+            return False, "COMPILATION\n" + compiled.stderr.decode(errors="replace")
         outputs = json.loads((ROOT / "tests/function_output.json").read_text())
         test_cases = cases(name) if exercise["kind"] == "program" else [[]]
         for args in test_cases:
@@ -100,58 +100,58 @@ def run(exercise, base=None, sanitize=True):
                     [str(executable)] + args, capture_output=True, timeout=2,
                     env={**os.environ, "UBSAN_OPTIONS": "halt_on_error=1"})
             except subprocess.TimeoutExpired:
-                return False, f"TEMPO ESGOTADO: args={args!r}; confira avanço e parada."
+                return False, f"TIMEOUT: args={args!r}; check progress and the stopping condition."
             if result.returncode:
-                return False, (f"EXECUÇÃO/MEMÓRIA: args={args!r}\n"
+                return False, (f"RUNTIME/MEMORY: args={args!r}\n"
                                + result.stderr.decode(errors="replace")[:3500])
             expected = (oracle(name, args) if exercise["kind"] == "program"
                         else outputs.get(name, "")).encode()
             if result.stdout != expected:
-                return False, (f"args={args!r}\nesperado={expected!r}\n"
-                               f"recebido={result.stdout!r}")
-        detail = " O harness verifica vários casos internos." if exercise["kind"] == "function" else ""
-        return True, f"{len(test_cases)} execução(ões) aprovada(s).{detail}"
+                return False, (f"args={args!r}\nexpected={expected!r}\n"
+                               f"received={result.stdout!r}")
+        detail = " The harness checks multiple internal cases." if exercise["kind"] == "function" else ""
+        return True, f"{len(test_cases)} successful execution(s).{detail}"
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("exercise", nargs="?", default="next",
-                        help="ID, next, list, status, concepts, level1–level4 ou all")
+                        help="ID, next, list, status, concepts, level1–level4 or all")
     parser.add_argument("--no-sanitize", action="store_true")
     parser.add_argument("--watch", action="store_true")
     args = parser.parse_args()
     state = load_progress()
     if args.exercise in ("list", "status"):
         approved = sum(state.get(e["id"]) == fingerprint(e) for e in ALL)
-        print(f"Progresso: {approved}/{len(ALL)} aprovados com o conteúdo atual.")
+        print(f"Progress: {approved}/{len(ALL)} passed with the current source contents.")
         if args.exercise == "list":
             for exercise in ALL:
                 mark = "✓" if state.get(exercise["id"]) == fingerprint(exercise) else "·"
-                print(f"{mark} {exercise['id']:24} nível {exercise['level']}  {exercise['path']}")
+                print(f"{mark} {exercise['id']:24} level {exercise['level']}  {exercise['path']}")
         return 0
     if args.exercise == "next":
         targets = [e for e in ALL if state.get(e["id"]) != fingerprint(e)][:1]
     elif args.exercise == "all":
         targets = ALL
     elif args.exercise == "concepts":
-        targets = [e for e in ALL if e["path"].startswith("conceitos/")]
+        targets = [e for e in ALL if e["path"].startswith("concepts/")]
     elif args.exercise in ("level1", "level2", "level3", "level4"):
         targets = [e for e in ALL if e["level"] == int(args.exercise[-1])
-                   and e["path"].startswith("prova/")]
+                   and e["path"].startswith("practice/")]
     else:
         targets = [e for e in ALL if e["id"] == args.exercise]
         if not targets:
-            parser.error("ID desconhecido. Consulte: python3 tester.py list")
+            parser.error("Unknown ID. See: python3 tester.py list")
     if not targets:
-        print("Trilha concluída. Para liberar os quatro exercícios: python3 simulado.py")
+        print("Track completed. To unlock the four exercises: python3 mock_exam.py")
         return 0
     while True:
         failures = 0
         observed = [fingerprint(e) for e in targets]
         for exercise, before in zip(targets, observed):
-            print(f"Arquivo: {exercise['path']}/{exercise['id']}.c", flush=True)
+            print(f"Source: {exercise['path']}/{exercise['id']}.c", flush=True)
             ok, message = run(exercise, sanitize=not args.no_sanitize)
-            print(("PASSOU " if ok else "FALHOU ") + exercise["id"])
+            print(("PASSED " if ok else "FAILED ") + exercise["id"])
             print(message, flush=True)
             failures += not ok
             if ok and before == fingerprint(exercise):
@@ -160,7 +160,7 @@ def main():
                 save_progress(state)
         if not args.watch:
             return 1 if failures else 0
-        print("Aguardando alteração (Ctrl+C encerra)...", flush=True)
+        print("Waiting for changes (Ctrl+C to stop)...", flush=True)
         while observed == [fingerprint(e) for e in targets]:
             time.sleep(0.5)
 
@@ -169,5 +169,5 @@ if __name__ == "__main__":
     try:
         sys.exit(main())
     except KeyboardInterrupt:
-        print("\nEncerrado.")
+        print("\nStopped.")
         sys.exit(130)

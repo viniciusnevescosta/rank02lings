@@ -2,337 +2,337 @@
   {
     "id": "first_word",
     "level": 1,
-    "path": "prova/nivel_1/first_word",
+    "path": "practice/level_1/first_word",
     "kind": "program"
   },
   {
     "id": "fizzbuzz",
     "level": 1,
-    "path": "prova/nivel_1/fizzbuzz",
+    "path": "practice/level_1/fizzbuzz",
     "kind": "program"
   },
   {
     "id": "ft_putstr",
     "level": 1,
-    "path": "prova/nivel_1/ft_putstr",
+    "path": "practice/level_1/ft_putstr",
     "kind": "function"
   },
   {
     "id": "ft_strcpy",
     "level": 1,
-    "path": "prova/nivel_1/ft_strcpy",
+    "path": "practice/level_1/ft_strcpy",
     "kind": "function"
   },
   {
     "id": "ft_strlen",
     "level": 1,
-    "path": "prova/nivel_1/ft_strlen",
+    "path": "practice/level_1/ft_strlen",
     "kind": "function"
   },
   {
     "id": "ft_swap",
     "level": 1,
-    "path": "prova/nivel_1/ft_swap",
+    "path": "practice/level_1/ft_swap",
     "kind": "function"
   },
   {
     "id": "repeat_alpha",
     "level": 1,
-    "path": "prova/nivel_1/repeat_alpha",
+    "path": "practice/level_1/repeat_alpha",
     "kind": "program"
   },
   {
     "id": "rev_print",
     "level": 1,
-    "path": "prova/nivel_1/rev_print",
+    "path": "practice/level_1/rev_print",
     "kind": "program"
   },
   {
     "id": "rot_13",
     "level": 1,
-    "path": "prova/nivel_1/rot_13",
+    "path": "practice/level_1/rot_13",
     "kind": "program"
   },
   {
     "id": "rotone",
     "level": 1,
-    "path": "prova/nivel_1/rotone",
+    "path": "practice/level_1/rotone",
     "kind": "program"
   },
   {
     "id": "search_and_replace",
     "level": 1,
-    "path": "prova/nivel_1/search_and_replace",
+    "path": "practice/level_1/search_and_replace",
     "kind": "program"
   },
   {
     "id": "ulstr",
     "level": 1,
-    "path": "prova/nivel_1/ulstr",
+    "path": "practice/level_1/ulstr",
     "kind": "program"
   },
   {
     "id": "alpha_mirror",
     "level": 2,
-    "path": "prova/nivel_2/alpha_mirror",
+    "path": "practice/level_2/alpha_mirror",
     "kind": "program"
   },
   {
     "id": "camel_to_snake",
     "level": 2,
-    "path": "prova/nivel_2/camel_to_snake",
+    "path": "practice/level_2/camel_to_snake",
     "kind": "program"
   },
   {
     "id": "do_op",
     "level": 2,
-    "path": "prova/nivel_2/do_op",
+    "path": "practice/level_2/do_op",
     "kind": "program"
   },
   {
     "id": "ft_atoi",
     "level": 2,
-    "path": "prova/nivel_2/ft_atoi",
+    "path": "practice/level_2/ft_atoi",
     "kind": "function"
   },
   {
     "id": "ft_strcmp",
     "level": 2,
-    "path": "prova/nivel_2/ft_strcmp",
+    "path": "practice/level_2/ft_strcmp",
     "kind": "function"
   },
   {
     "id": "ft_strcspn",
     "level": 2,
-    "path": "prova/nivel_2/ft_strcspn",
+    "path": "practice/level_2/ft_strcspn",
     "kind": "function"
   },
   {
     "id": "ft_strdup",
     "level": 2,
-    "path": "prova/nivel_2/ft_strdup",
+    "path": "practice/level_2/ft_strdup",
     "kind": "function"
   },
   {
     "id": "ft_strpbrk",
     "level": 2,
-    "path": "prova/nivel_2/ft_strpbrk",
+    "path": "practice/level_2/ft_strpbrk",
     "kind": "function"
   },
   {
     "id": "ft_strrev",
     "level": 2,
-    "path": "prova/nivel_2/ft_strrev",
+    "path": "practice/level_2/ft_strrev",
     "kind": "function"
   },
   {
     "id": "ft_strspn",
     "level": 2,
-    "path": "prova/nivel_2/ft_strspn",
+    "path": "practice/level_2/ft_strspn",
     "kind": "function"
   },
   {
     "id": "is_power_of_2",
     "level": 2,
-    "path": "prova/nivel_2/is_power_of_2",
+    "path": "practice/level_2/is_power_of_2",
     "kind": "function"
   },
   {
     "id": "last_word",
     "level": 2,
-    "path": "prova/nivel_2/last_word",
+    "path": "practice/level_2/last_word",
     "kind": "program"
   },
   {
     "id": "max",
     "level": 2,
-    "path": "prova/nivel_2/max",
+    "path": "practice/level_2/max",
     "kind": "function"
   },
   {
     "id": "print_bits",
     "level": 2,
-    "path": "prova/nivel_2/print_bits",
+    "path": "practice/level_2/print_bits",
     "kind": "function"
   },
   {
     "id": "reverse_bits",
     "level": 2,
-    "path": "prova/nivel_2/reverse_bits",
+    "path": "practice/level_2/reverse_bits",
     "kind": "function"
   },
   {
     "id": "snake_to_camel",
     "level": 2,
-    "path": "prova/nivel_2/snake_to_camel",
+    "path": "practice/level_2/snake_to_camel",
     "kind": "program"
   },
   {
     "id": "swap_bits",
     "level": 2,
-    "path": "prova/nivel_2/swap_bits",
+    "path": "practice/level_2/swap_bits",
     "kind": "function"
   },
   {
     "id": "union",
     "level": 2,
-    "path": "prova/nivel_2/union",
+    "path": "practice/level_2/union",
     "kind": "program"
   },
   {
     "id": "wdmatch",
     "level": 2,
-    "path": "prova/nivel_2/wdmatch",
+    "path": "practice/level_2/wdmatch",
     "kind": "program"
   },
   {
     "id": "add_prime_sum",
     "level": 3,
-    "path": "prova/nivel_3/add_prime_sum",
+    "path": "practice/level_3/add_prime_sum",
     "kind": "program"
   },
   {
     "id": "epur_str",
     "level": 3,
-    "path": "prova/nivel_3/epur_str",
+    "path": "practice/level_3/epur_str",
     "kind": "program"
   },
   {
     "id": "expand_str",
     "level": 3,
-    "path": "prova/nivel_3/expand_str",
+    "path": "practice/level_3/expand_str",
     "kind": "program"
   },
   {
     "id": "ft_atoi_base",
     "level": 3,
-    "path": "prova/nivel_3/ft_atoi_base",
+    "path": "practice/level_3/ft_atoi_base",
     "kind": "function"
   },
   {
     "id": "ft_list_size",
     "level": 3,
-    "path": "prova/nivel_3/ft_list_size",
+    "path": "practice/level_3/ft_list_size",
     "kind": "function"
   },
   {
     "id": "ft_range",
     "level": 3,
-    "path": "prova/nivel_3/ft_range",
+    "path": "practice/level_3/ft_range",
     "kind": "function"
   },
   {
     "id": "ft_rrange",
     "level": 3,
-    "path": "prova/nivel_3/ft_rrange",
+    "path": "practice/level_3/ft_rrange",
     "kind": "function"
   },
   {
     "id": "hidenp",
     "level": 3,
-    "path": "prova/nivel_3/hidenp",
+    "path": "practice/level_3/hidenp",
     "kind": "program"
   },
   {
     "id": "lcm",
     "level": 3,
-    "path": "prova/nivel_3/lcm",
+    "path": "practice/level_3/lcm",
     "kind": "function"
   },
   {
     "id": "paramsum",
     "level": 3,
-    "path": "prova/nivel_3/paramsum",
+    "path": "practice/level_3/paramsum",
     "kind": "program"
   },
   {
     "id": "pgcd",
     "level": 3,
-    "path": "prova/nivel_3/pgcd",
+    "path": "practice/level_3/pgcd",
     "kind": "program"
   },
   {
     "id": "print_hex",
     "level": 3,
-    "path": "prova/nivel_3/print_hex",
+    "path": "practice/level_3/print_hex",
     "kind": "program"
   },
   {
     "id": "rstr_capitalizer",
     "level": 3,
-    "path": "prova/nivel_3/rstr_capitalizer",
+    "path": "practice/level_3/rstr_capitalizer",
     "kind": "program"
   },
   {
     "id": "str_capitalizer",
     "level": 3,
-    "path": "prova/nivel_3/str_capitalizer",
+    "path": "practice/level_3/str_capitalizer",
     "kind": "program"
   },
   {
     "id": "tab_mult",
     "level": 3,
-    "path": "prova/nivel_3/tab_mult",
+    "path": "practice/level_3/tab_mult",
     "kind": "program"
   },
   {
     "id": "flood_fill",
     "level": 4,
-    "path": "prova/nivel_4/flood_fill",
+    "path": "practice/level_4/flood_fill",
     "kind": "function"
   },
   {
     "id": "fprime",
     "level": 4,
-    "path": "prova/nivel_4/fprime",
+    "path": "practice/level_4/fprime",
     "kind": "program"
   },
   {
     "id": "ft_itoa",
     "level": 4,
-    "path": "prova/nivel_4/ft_itoa",
+    "path": "practice/level_4/ft_itoa",
     "kind": "function"
   },
   {
     "id": "ft_list_foreach",
     "level": 4,
-    "path": "prova/nivel_4/ft_list_foreach",
+    "path": "practice/level_4/ft_list_foreach",
     "kind": "function"
   },
   {
     "id": "ft_list_remove_if",
     "level": 4,
-    "path": "prova/nivel_4/ft_list_remove_if",
+    "path": "practice/level_4/ft_list_remove_if",
     "kind": "function"
   },
   {
     "id": "ft_split",
     "level": 4,
-    "path": "prova/nivel_4/ft_split",
+    "path": "practice/level_4/ft_split",
     "kind": "function"
   },
   {
     "id": "rev_wstr",
     "level": 4,
-    "path": "prova/nivel_4/rev_wstr",
+    "path": "practice/level_4/rev_wstr",
     "kind": "program"
   },
   {
     "id": "rostring",
     "level": 4,
-    "path": "prova/nivel_4/rostring",
+    "path": "practice/level_4/rostring",
     "kind": "program"
   },
   {
     "id": "sort_int_tab",
     "level": 4,
-    "path": "prova/nivel_4/sort_int_tab",
+    "path": "practice/level_4/sort_int_tab",
     "kind": "function"
   },
   {
     "id": "sort_list",
     "level": 4,
-    "path": "prova/nivel_4/sort_list",
+    "path": "practice/level_4/sort_list",
     "kind": "function"
   }
 ]

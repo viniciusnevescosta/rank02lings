@@ -1,146 +1,146 @@
 [
   {
-    "id": "c01_contar",
+    "id": "c01_count",
     "level": 1,
-    "path": "conceitos/c01_contar",
+    "path": "concepts/c01_count",
     "kind": "function"
   },
   {
-    "id": "c02_copiar",
+    "id": "c02_copy",
     "level": 1,
-    "path": "conceitos/c02_copiar",
+    "path": "concepts/c02_copy",
     "kind": "function"
   },
   {
-    "id": "c03_trocar",
+    "id": "c03_swap",
     "level": 1,
-    "path": "conceitos/c03_trocar",
+    "path": "concepts/c03_swap",
     "kind": "function"
   },
   {
-    "id": "c04_espaco",
+    "id": "c04_is_space",
     "level": 1,
-    "path": "conceitos/c04_espaco",
+    "path": "concepts/c04_is_space",
     "kind": "function"
   },
   {
-    "id": "c05_minuscula",
+    "id": "c05_lowercase",
     "level": 1,
-    "path": "conceitos/c05_minuscula",
+    "path": "concepts/c05_lowercase",
     "kind": "function"
   },
   {
-    "id": "c06_inicio",
+    "id": "c06_word_start",
     "level": 1,
-    "path": "conceitos/c06_inicio",
+    "path": "concepts/c06_word_start",
     "kind": "function"
   },
   {
-    "id": "c07_digito",
+    "id": "c07_digit",
     "level": 2,
-    "path": "conceitos/c07_digito",
+    "path": "concepts/c07_digit",
     "kind": "function"
   },
   {
-    "id": "c08_acumular",
+    "id": "c08_accumulate",
     "level": 2,
-    "path": "conceitos/c08_acumular",
+    "path": "concepts/c08_accumulate",
     "kind": "function"
   },
   {
-    "id": "c09_buscar",
+    "id": "c09_find",
     "level": 2,
-    "path": "conceitos/c09_buscar",
+    "path": "concepts/c09_find",
     "kind": "function"
   },
   {
-    "id": "c10_inverter",
+    "id": "c10_reverse",
     "level": 2,
-    "path": "conceitos/c10_inverter",
+    "path": "concepts/c10_reverse",
     "kind": "function"
   },
   {
     "id": "c11_bit",
     "level": 2,
-    "path": "conceitos/c11_bit",
+    "path": "concepts/c11_bit",
     "kind": "function"
   },
   {
-    "id": "c12_duplicar",
+    "id": "c12_duplicate",
     "level": 2,
-    "path": "conceitos/c12_duplicar",
+    "path": "concepts/c12_duplicate",
     "kind": "function"
   },
   {
-    "id": "c13_tamanho_intervalo",
+    "id": "c13_range_length",
     "level": 3,
-    "path": "conceitos/c13_tamanho_intervalo",
+    "path": "concepts/c13_range_length",
     "kind": "function"
   },
   {
-    "id": "c14_passo",
+    "id": "c14_step",
     "level": 3,
-    "path": "conceitos/c14_passo",
+    "path": "concepts/c14_step",
     "kind": "function"
   },
   {
-    "id": "c15_intervalo",
+    "id": "c15_range",
     "level": 3,
-    "path": "conceitos/c15_intervalo",
+    "path": "concepts/c15_range",
     "kind": "function"
   },
   {
-    "id": "c16_valor_base",
+    "id": "c16_digit_value",
     "level": 3,
-    "path": "conceitos/c16_valor_base",
+    "path": "concepts/c16_digit_value",
     "kind": "function"
   },
   {
-    "id": "c17_mdc",
+    "id": "c17_gcd",
     "level": 3,
-    "path": "conceitos/c17_mdc",
+    "path": "concepts/c17_gcd",
     "kind": "function"
   },
   {
-    "id": "c18_palavras",
+    "id": "c18_word_count",
     "level": 3,
-    "path": "conceitos/c18_palavras",
+    "path": "concepts/c18_word_count",
     "kind": "function"
   },
   {
-    "id": "c19_digitos",
+    "id": "c19_digit_count",
     "level": 4,
-    "path": "conceitos/c19_digitos",
+    "path": "concepts/c19_digit_count",
     "kind": "function"
   },
   {
-    "id": "c20_terminar_vetor",
+    "id": "c20_terminate_array",
     "level": 4,
-    "path": "conceitos/c20_terminar_vetor",
+    "path": "concepts/c20_terminate_array",
     "kind": "function"
   },
   {
-    "id": "c21_ordenar_par",
+    "id": "c21_sort_pair",
     "level": 4,
-    "path": "conceitos/c21_ordenar_par",
+    "path": "concepts/c21_sort_pair",
     "kind": "function"
   },
   {
-    "id": "c22_dentro",
+    "id": "c22_in_bounds",
     "level": 4,
-    "path": "conceitos/c22_dentro",
+    "path": "concepts/c22_in_bounds",
     "kind": "function"
   },
   {
-    "id": "c23_visitar",
+    "id": "c23_visit",
     "level": 4,
-    "path": "conceitos/c23_visitar",
+    "path": "concepts/c23_visit",
     "kind": "function"
   },
   {
-    "id": "c24_soma_recursiva",
+    "id": "c24_recursive_sum",
     "level": 4,
-    "path": "conceitos/c24_soma_recursiva",
+    "path": "concepts/c24_recursive_sum",
     "kind": "function"
   }
 ]

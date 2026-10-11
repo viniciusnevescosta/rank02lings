@@ -16,7 +16,7 @@ def main():
         if not source.is_file():
             raise SystemExit(f'Missing source: {source}')
         ok, message = tester.run(entry)
-        if ok or message.startswith('FERRAMENTAS/ARQUIVOS'):
+        if ok or message.startswith('TOOLS/FILES'):
             unexpected.append((entry['id'], message))
         print(f"{'UNEXPECTED' if ok else 'EXPECTED FAIL'} {entry['id']}", flush=True)
     if unexpected:

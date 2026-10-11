@@ -10,7 +10,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import tester
-import simulado
+import mock_exam
 
 
 class RunnerTests(unittest.TestCase):
@@ -46,7 +46,7 @@ class RunnerTests(unittest.TestCase):
         self.source.write_text('this is invalid C;')
         ok, message = tester.run(self.entry)
         self.assertFalse(ok)
-        self.assertIn('COMPILAÇÃO', message)
+        self.assertIn('COMPILATION', message)
 
     def test_memory_error_is_rejected(self):
         self.source.write_text(
@@ -54,13 +54,13 @@ class RunnerTests(unittest.TestCase):
             'volatile int *p=malloc(sizeof(int));p[100]=a;free((void*)p);return a+b;}')
         ok, message = tester.run(self.entry)
         self.assertFalse(ok)
-        self.assertIn('EXECUÇÃO/MEMÓRIA', message)
+        self.assertIn('RUNTIME/MEMORY', message)
 
     def test_nonterminating_function_times_out(self):
         self.source.write_text('int add(int a,int b){(void)a;(void)b;while(1){}}')
         ok, message = tester.run(self.entry)
         self.assertFalse(ok)
-        self.assertIn('TEMPO ESGOTADO', message)
+        self.assertIn('TIMEOUT', message)
 
     def test_program_output_is_compared_exactly(self):
         self.entry['kind'] = 'program'
@@ -72,7 +72,7 @@ class RunnerTests(unittest.TestCase):
                 patch.object(tester, 'oracle', return_value='hello'):
             ok, message = tester.run(self.entry)
             self.assertFalse(ok)
-            self.assertIn('esperado=', message)
+            self.assertIn('expected=', message)
 
     def test_unknown_id_returns_argument_error(self):
         with patch.object(tester, 'ALL', [self.entry]), \
@@ -94,17 +94,17 @@ class RunnerTests(unittest.TestCase):
     def test_mock_exam_unlock_and_repeated_command(self):
         self.source.write_text('int add(int a,int b){return a+b;}')
         with patch.object(tester, 'ALL', [self.entry]), \
-                patch.object(simulado, 'R', self.root), \
+                patch.object(mock_exam, 'R', self.root), \
                 contextlib.redirect_stdout(io.StringIO()):
-            simulado.main()
+            mock_exam.main()
             self.assertFalse((self.root / 'simulation.json').exists())
             tester.save_progress({'sample': tester.fingerprint(self.entry)})
-            simulado.main()
+            mock_exam.main()
             entries = json.loads((self.root / 'simulation.json').read_text())
             self.assertEqual([e['level'] for e in entries], [1,2,3,4])
             first = self.root / entries[0]['path'] / (entries[0]['id'] + '.c')
             first.write_text('my attempt')
-            simulado.main()
+            mock_exam.main()
             self.assertEqual(first.read_text(), 'my attempt')
 
 

@@ -1,6 +1,6 @@
 # Contributing
 
-Help other learners turn ideas into C code. English and Portuguese contributions are welcome. For a tester issue, include your operating system, Python/compiler versions, exercise ID, command, and diagnostic output.
+Help other learners turn ideas into C code. Keep documentation, comments, filenames, and user-facing messages in English. For a tester issue, include your operating system, Python/compiler versions, exercise ID, command, and diagnostic output.
 
 ## Preparing a change
 

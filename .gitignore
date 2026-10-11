@@ -4,7 +4,7 @@ __pycache__/
 progress.json
 progress.json.tmp
 simulation.json
-simulado/
+mock_exam/
 tests/s0*.c
 work/
 *.o
