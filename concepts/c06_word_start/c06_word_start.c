@@ -23,6 +23,14 @@
 
 int	word_start(char *s)
 {
-	(void)s;
-	return (0);
+	int i;
+
+	i = 0;
+	while(s[i])
+	{
+		if (s[i] != ' ' && s[i] != '\t')
+			return (i);
+		i++;
+	}
+	return (i);
 }
