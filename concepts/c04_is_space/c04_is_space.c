@@ -21,6 +21,5 @@
 
 int	is_space(char c)
 {
-	(void)c;
-	return (0);
+	return (c == ' ' || c == '\t');
 }
