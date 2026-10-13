@@ -162,7 +162,15 @@ def compiler_command():
     flags = ["-std=c99", "-Wall", "-Wextra", "-Werror", "-g"]
     if b"clang" in version.stdout.lower():
         # The original remove_if subject requires int (*cmp)().
-        flags.append("-Wno-deprecated-non-prototype")
+        # Clang 12 doesn't support this suppression. Probe before adding it,
+        # retaining -Werror so unsupported warning options fail the probe.
+        warning_flag = "-Wno-deprecated-non-prototype"
+        probe = subprocess.run(
+            command + flags + [warning_flag, "-x", "c", "-fsyntax-only", "-"],
+            input=b"int main(void) { return 0; }\n",
+            capture_output=True, timeout=10)
+        if probe.returncode == 0:
+            flags.append(warning_flag)
     return command + flags
 
 
