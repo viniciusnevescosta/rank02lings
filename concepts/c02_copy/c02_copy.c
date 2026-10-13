@@ -25,6 +25,13 @@
 
 void	copy(char *d, char *s)
 {
-	(void)d;
-	(void)s;
+	int i;
+
+	i = 0;
+	while (s[i])
+	{
+		d[i] = s[i];
+		i++;
+	}
+	d[i] = '\0';
 }
