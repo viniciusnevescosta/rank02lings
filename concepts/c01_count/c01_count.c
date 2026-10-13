@@ -22,6 +22,10 @@
 
 int	count(char *s)
 {
-	(void)s;
-	return (0);
+	int i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
