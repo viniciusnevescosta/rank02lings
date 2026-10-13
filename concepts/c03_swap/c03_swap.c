@@ -23,6 +23,7 @@
 
 void	swap(int *a, int *b)
 {
-	(void)a;
-	(void)b;
+	int swap = *a;
+	*a = *b;
+	*b = swap;
 }
