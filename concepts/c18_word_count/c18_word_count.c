@@ -22,6 +22,24 @@
 
 int	word_count(char *s)
 {
-	(void)s;
-	return (0);
+	int i;
+	int count;
+	int inside;
+
+	i = 0;
+	count = 0;
+	inside = 0;
+	while (s[i])
+	{
+		if (s[i] == ' ' || s[i] == '\t')
+			inside = 0;
+		else if (inside == 0)
+		{
+			count++;
+			inside = 1;
+		}
+		i++;
+	}
+
+	return (count);
 }
