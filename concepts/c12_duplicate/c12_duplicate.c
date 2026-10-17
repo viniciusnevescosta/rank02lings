@@ -26,6 +26,24 @@
 
 char	*duplicate(char *s)
 {
-	(void)s;
-	return (NULL);
+	int i;
+	char *heap;
+
+	i = 0;
+	while (s[i])
+		i++;
+
+	heap = malloc(sizeof(char) * i + 1);
+	if (!heap)
+		return (NULL);
+
+	i = 0;
+	while (s[i])
+	{
+		heap[i] = s[i];
+		i++;
+	}
+	heap[i] = '\0';
+
+	return (heap);
 }
