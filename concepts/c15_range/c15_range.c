@@ -24,7 +24,35 @@
 
 int	*range(int a, int b)
 {
-	(void)a;
-	(void)b;
-	return (NULL);
+	int size;
+	int *s;
+	int i;
+	int decrement;
+
+	decrement = 0;
+
+	if (a > b)
+	{
+		size = (a - b) + 1;
+		decrement = 1;
+	}
+	else
+		size = (b - a) + 1;
+
+	s = malloc(sizeof(int) * size);
+	if (!s)
+		return (NULL);
+
+	i = 0;
+	while (i < size)
+	{
+		s[i] = a;
+		if (decrement)
+			a--;
+		else
+			a++;
+		i++;
+	}
+
+	return (s);
 }
