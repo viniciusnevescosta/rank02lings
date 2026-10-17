@@ -22,5 +22,23 @@
 
 void	reverse(char *s)
 {
-	(void)s;
+	int left;
+	int right;
+	char swap;
+
+	left = 0;
+	right = 0;
+	while (s[right])
+		right++;
+
+	right -= 1;
+
+	while (left < right)
+	{
+		swap = s[left];
+		s[left] = s[right];
+		s[right] = swap;
+		left++;
+		right--;
+	}
 }
