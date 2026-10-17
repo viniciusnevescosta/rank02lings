@@ -22,6 +22,13 @@
 
 unsigned int	gcd(unsigned int a, unsigned int b)
 {
-	(void)b;
+	unsigned int swap;
+
+	while (b != 0)
+	{
+		swap = a % b;
+		a = b;
+		b = swap;
+	}
 	return (a);
 }
