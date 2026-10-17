@@ -22,5 +22,5 @@
 
 int	accumulate(int current, int d)
 {
-	return (current + d);
+	return (current * 10 + d);
 }
