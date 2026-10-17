@@ -22,5 +22,8 @@
 
 int	range_length(int a, int b)
 {
-	return (a - b);
+	if (a > b)
+		return ((a - b) + 1);
+	else
+		return ((b - a) + 1);
 }
