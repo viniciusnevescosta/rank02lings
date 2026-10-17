@@ -21,7 +21,5 @@
 
 int	bit(unsigned char n, int pos)
 {
-	(void)n;
-	(void)pos;
-	return (0);
+	return ((n >> pos) & 1);
 }
