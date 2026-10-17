@@ -20,7 +20,7 @@
 
 int	step(int a, int b)
 {
-	(void)a;
-	(void)b;
+	if (a > b)
+		return (-1);
 	return (1);
 }
